@@ -41,7 +41,17 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
       signInForm.reset();
     } catch (error: any) {
       console.error('Sign in error:', error);
-      setAuthError('Invalid email or password. Please check your credentials and try again.');
+      
+      // Handle specific error cases
+      if (error.message?.includes('Supabase configuration')) {
+        setAuthError('Database connection error. Please check the Supabase configuration in your .env file.');
+      } else if (error.message?.includes('Failed to fetch') || error.message?.includes('NetworkError')) {
+        setAuthError('Unable to connect to the authentication service. Please check your internet connection and Supabase configuration.');
+      } else if (error.message?.includes('Invalid login credentials')) {
+        setAuthError('Invalid email or password. Please check your credentials and try again.');
+      } else {
+        setAuthError(error.message || 'An unexpected error occurred. Please try again.');
+      }
     } finally {
       setLoading(false);
     }
@@ -67,7 +77,13 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
       signUpForm.reset();
     } catch (error: any) {
       console.error('Sign up error:', error);
-      if (error.message.includes('already registered')) {
+      
+      // Handle specific error cases
+      if (error.message?.includes('Supabase configuration')) {
+        setAuthError('Database connection error. Please check the Supabase configuration in your .env file.');
+      } else if (error.message?.includes('Failed to fetch') || error.message?.includes('NetworkError')) {
+        setAuthError('Unable to connect to the authentication service. Please check your internet connection and Supabase configuration.');
+      } else if (error.message?.includes('already registered')) {
         setAuthError('An account with this email already exists. Please sign in instead.');
         setIsSignUp(false);
       } else {
