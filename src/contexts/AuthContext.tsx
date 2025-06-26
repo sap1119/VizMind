@@ -29,36 +29,57 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Get initial session
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session);
-      setUser(session?.user ?? null);
-      setLoading(false);
-    });
+    // Get initial session with error handling
+    const getInitialSession = async () => {
+      try {
+        const { data: { session }, error } = await supabase.auth.getSession();
+        if (error) {
+          console.error('Error getting session:', error);
+        } else {
+          setSession(session);
+          setUser(session?.user ?? null);
+        }
+      } catch (error) {
+        console.error('Unexpected error getting session:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-    // Listen for auth changes
+    getInitialSession();
+
+    // Listen for auth changes with error handling
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       async (event, session) => {
-        setSession(session);
-        setUser(session?.user ?? null);
-        setLoading(false);
+        try {
+          setSession(session);
+          setUser(session?.user ?? null);
+          setLoading(false);
 
-        if (event === 'SIGNED_IN' && session?.user) {
-          // Create or update profile
-          const { error } = await supabase
-            .from('profiles')
-            .upsert({
-              id: session.user.id,
-              email: session.user.email!,
-              full_name: session.user.user_metadata?.full_name || null,
-              updated_at: new Date().toISOString(),
-            }, {
-              onConflict: 'id'
-            });
+          if (event === 'SIGNED_IN' && session?.user) {
+            // Create or update profile with error handling
+            try {
+              const { error } = await supabase
+                .from('profiles')
+                .upsert({
+                  id: session.user.id,
+                  email: session.user.email!,
+                  full_name: session.user.user_metadata?.full_name || null,
+                  updated_at: new Date().toISOString(),
+                }, {
+                  onConflict: 'id'
+                });
 
-          if (error) {
-            console.error('Error updating profile:', error);
+              if (error) {
+                console.error('Error updating profile:', error);
+              }
+            } catch (profileError) {
+              console.error('Error in profile update:', profileError);
+            }
           }
+        } catch (error) {
+          console.error('Error in auth state change:', error);
+          setLoading(false);
         }
       }
     );

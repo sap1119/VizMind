@@ -16,6 +16,53 @@ import { AnalyticsReportStep } from './components/workflow/AnalyticsReportStep';
 import { SettingsPage } from './components/settings/SettingsPage';
 import { BarChart3, Brain, Database, Sparkles, LogIn } from 'lucide-react';
 
+// Error Boundary Component
+class ErrorBoundary extends React.Component<
+  { children: React.ReactNode },
+  { hasError: boolean; error?: Error }
+> {
+  constructor(props: { children: React.ReactNode }) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(error: Error) {
+    return { hasError: true, error };
+  }
+
+  componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
+    console.error('Error caught by boundary:', error, errorInfo);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900">
+          <div className="text-center p-8">
+            <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <BarChart3 className="w-8 h-8 text-red-600" />
+            </div>
+            <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+              Something went wrong
+            </h1>
+            <p className="text-gray-600 dark:text-gray-400 mb-6">
+              We're sorry, but there was an error loading the application.
+            </p>
+            <button
+              onClick={() => window.location.reload()}
+              className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all"
+            >
+              Reload Page
+            </button>
+          </div>
+        </div>
+      );
+    }
+
+    return this.props.children;
+  }
+}
+
 // Protected Route Component
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { user, loading } = useAuth();
@@ -23,7 +70,10 @@ const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) =
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900">
-        <div className="animate-spin w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full"></div>
+        <div className="text-center">
+          <div className="animate-spin w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full mx-auto mb-4"></div>
+          <p className="text-gray-600 dark:text-gray-400">Loading VizMind...</p>
+        </div>
       </div>
     );
   }
@@ -38,7 +88,6 @@ const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) =
 // Main App Content
 const AppContent: React.FC = () => {
   const { user } = useAuth();
-  const { currentStep, parsedData } = useData();
   const [showAuthModal, setShowAuthModal] = useState(false);
 
   if (!user) {
@@ -176,33 +225,36 @@ const AppContent: React.FC = () => {
 
 function App() {
   return (
-    <ThemeProvider>
-      <AuthProvider>
-        <DataProvider>
-          <Router>
-            <div className="App">
-              <Routes>
-                <Route path="/*" element={
-                  <ProtectedRoute>
-                    <AppContent />
-                  </ProtectedRoute>
-                } />
-              </Routes>
-              <Toaster 
-                position="top-right"
-                toastOptions={{
-                  duration: 4000,
-                  style: {
-                    background: '#363636',
-                    color: '#fff',
-                  },
-                }}
-              />
-            </div>
-          </Router>
-        </DataProvider>
-      </AuthProvider>
-    </ThemeProvider>
+    <ErrorBoundary>
+      <ThemeProvider>
+        <AuthProvider>
+          <DataProvider>
+            <Router>
+              <div className="App">
+                <Routes>
+                  <Route path="/auth" element={<AppContent />} />
+                  <Route path="/*" element={
+                    <ProtectedRoute>
+                      <AppContent />
+                    </ProtectedRoute>
+                  } />
+                </Routes>
+                <Toaster 
+                  position="top-right"
+                  toastOptions={{
+                    duration: 4000,
+                    style: {
+                      background: '#363636',
+                      color: '#fff',
+                    },
+                  }}
+                />
+              </div>
+            </Router>
+          </DataProvider>
+        </AuthProvider>
+      </ThemeProvider>
+    </ErrorBoundary>
   );
 }
 
