@@ -1,10 +1,27 @@
 import { createClient } from '@supabase/supabase-js';
 
-// Fallback values for development
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'https://demo.supabase.co';
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || 'demo-key';
+// Get environment variables
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
-// Create client with error handling
+// Validate environment variables
+if (!supabaseUrl || !supabaseAnonKey || 
+    supabaseUrl === 'https://your-project.supabase.co' || 
+    supabaseAnonKey === 'your-anon-key-here' ||
+    supabaseUrl === 'https://demo.supabase.co' ||
+    supabaseAnonKey === 'demo-key') {
+  console.error('❌ Supabase configuration error:');
+  console.error('Please update your .env file with valid Supabase credentials.');
+  console.error('1. Go to https://app.supabase.com');
+  console.error('2. Select your project');
+  console.error('3. Go to Settings > API');
+  console.error('4. Copy your Project URL and anon key to .env file');
+  console.error('5. Restart the development server');
+  
+  throw new Error('Supabase configuration is missing or invalid. Please check your .env file.');
+}
+
+// Create client with proper configuration
 export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
   auth: {
     persistSession: true,
