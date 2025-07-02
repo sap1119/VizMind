@@ -56,9 +56,9 @@ export const HomePage: React.FC = () => {
   ];
 
   const stats = [
-    { number: '50K+', label: 'Active Users', icon: Users },
-    { number: '100M+', label: 'Data Points Processed', icon: Database },
-    { number: '99.9%', label: 'Uptime', icon: TrendingUp },
+    { number: '3K+', label: 'Active Users', icon: Users },
+    { number: '100K+', label: 'Data Points Processed', icon: Database },
+    { number: '98.9%', label: 'Uptime', icon: TrendingUp },
     { number: '24/7', label: 'Support', icon: Shield }
   ];
 
