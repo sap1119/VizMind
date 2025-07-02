@@ -40,7 +40,8 @@ export const Footer: React.FC = () => {
               <img 
                 src="/VizMind Logo - Flat Vector Style.png" 
                 alt="VizMind Logo" 
-                className="w-10 h-10 filter brightness-0 invert"
+                className="w-10 h-10"
+                style={{ filter: 'brightness(0) invert(1)' }}
               />
               <div>
                 <h1 className="text-xl font-black tracking-tight text-white">
@@ -51,17 +52,17 @@ export const Footer: React.FC = () => {
             
             <p className="text-gray-400 mb-6 max-w-md">
               Empowering businesses with AI-powered analytics and data visualization tools 
-              that transform raw data into actionable insights.
+              that transform raw data into actionable insights. Your data stays private and secure.
             </p>
             
             <div className="space-y-2 text-sm text-gray-400">
               <div className="flex items-center space-x-2">
                 <MapPin className="w-4 h-4" />
-                <span>San Francisco, CA</span>
+                <span>Hyderabad, TS, India</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Phone className="w-4 h-4" />
-                <span>+1 (555) 123-4567</span>
+                <span>+91 8688057190</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="w-4 h-4" />
