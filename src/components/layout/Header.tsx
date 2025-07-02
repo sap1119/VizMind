@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Bell, Search, User, LogOut, Settings } from 'lucide-react';
+import { Bell, Search, User, LogOut, Settings, Home, ExternalLink } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { useTheme } from '../../contexts/ThemeContext';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export const Header: React.FC = () => {
@@ -48,7 +48,7 @@ export const Header: React.FC = () => {
 
   return (
     <header className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 h-16 flex items-center justify-between px-6 transition-colors">
-      {/* Search */}
+      {/* Left side - Search */}
       <div className="flex-1 max-w-lg">
         <div className="relative">
           <Search className="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 dark:text-gray-500" />
@@ -62,6 +62,25 @@ export const Header: React.FC = () => {
 
       {/* Right side */}
       <div className="flex items-center space-x-4">
+        {/* Quick Access to Marketing Pages */}
+        <div className="hidden md:flex items-center space-x-2">
+          <Link
+            to="/home"
+            className="flex items-center space-x-1 px-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
+          >
+            <Home className="w-4 h-4" />
+            <span>Home</span>
+            <ExternalLink className="w-3 h-3" />
+          </Link>
+          <Link
+            to="/features"
+            className="flex items-center space-x-1 px-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
+          >
+            <span>Features</span>
+            <ExternalLink className="w-3 h-3" />
+          </Link>
+        </div>
+
         {/* Notifications */}
         <div className="relative">
           <button
@@ -119,7 +138,7 @@ export const Header: React.FC = () => {
             <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
               <User className="w-4 h-4 text-white" />
             </div>
-            <div className="text-left">
+            <div className="text-left hidden sm:block">
               <p className="text-sm font-medium">{user?.email?.split('@')[0] || 'User'}</p>
               <p className="text-xs text-gray-500 dark:text-gray-400">Premium Plan</p>
             </div>
@@ -154,7 +173,21 @@ export const Header: React.FC = () => {
                     <Settings className="w-4 h-4" />
                     <span>Settings</span>
                   </button>
+                  
                   <hr className="my-2 border-gray-200 dark:border-gray-600" />
+                  
+                  <Link
+                    to="/home"
+                    className="w-full flex items-center space-x-3 px-3 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
+                    onClick={() => setShowUserMenu(false)}
+                  >
+                    <Home className="w-4 h-4" />
+                    <span>Website Home</span>
+                    <ExternalLink className="w-3 h-3 ml-auto" />
+                  </Link>
+                  
+                  <hr className="my-2 border-gray-200 dark:border-gray-600" />
+                  
                   <button
                     onClick={handleSignOut}
                     className="w-full flex items-center space-x-3 px-3 py-2 text-sm text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors"

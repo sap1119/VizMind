@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { useData } from '../../contexts/DataContext';
 import { useTheme } from '../../contexts/ThemeContext';
 import { 
@@ -11,7 +11,9 @@ import {
   CheckCircle,
   Circle,
   Lock,
-  Settings
+  Settings,
+  Home,
+  ExternalLink
 } from 'lucide-react';
 
 const workflowSteps = [
@@ -59,6 +61,13 @@ const workflowSteps = [
   },
 ];
 
+const marketingPages = [
+  { name: 'Home', href: '/home', icon: Home },
+  { name: 'Features', href: '/features', icon: Target },
+  { name: 'Blog', href: '/blog', icon: FileText },
+  { name: 'News', href: '/news', icon: TrendingUp },
+];
+
 export const WorkflowSidebar: React.FC = () => {
   const { currentStep, completedSteps, parsedData } = useData();
   const { isDarkMode } = useTheme();
@@ -76,7 +85,7 @@ export const WorkflowSidebar: React.FC = () => {
   return (
     <div className="flex flex-col w-80 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 transition-colors">
       <div className="flex items-center h-16 px-6 border-b border-gray-200 dark:border-gray-700">
-        <div className="flex items-center space-x-3">
+        <Link to="/home" className="flex items-center space-x-3">
           <img 
             src="/VizMind Logo - Flat Vector Style.png" 
             alt="VizMind Logo" 
@@ -87,10 +96,32 @@ export const WorkflowSidebar: React.FC = () => {
               VIZMIND
             </h1>
           </div>
-        </div>
+        </Link>
       </div>
 
-      <nav className="flex-1 px-4 py-6">
+      <nav className="flex-1 px-4 py-6 overflow-y-auto">
+        {/* Marketing Pages Section */}
+        <div className="mb-8">
+          <h2 className="text-sm font-bold text-gray-900 dark:text-white mb-4">Website Pages</h2>
+          <div className="space-y-1">
+            {marketingPages.map((page) => {
+              const Icon = page.icon;
+              return (
+                <Link
+                  key={page.name}
+                  to={page.href}
+                  className="flex items-center px-3 py-2 text-sm font-medium rounded-lg transition-colors text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white group"
+                >
+                  <Icon className="w-4 h-4 mr-3" />
+                  <span className="font-semibold">{page.name}</span>
+                  <ExternalLink className="w-3 h-3 ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Analytics Workflow Section */}
         <div className="space-y-2">
           <h2 className="text-sm font-bold text-gray-900 dark:text-white mb-4">Analytics Workflow</h2>
           

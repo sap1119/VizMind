@@ -79,9 +79,9 @@ class ErrorBoundary extends React.Component<
 // Layout wrapper component
 const LayoutWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const location = useLocation();
-  const isAnalyticsApp = location.pathname.startsWith('/analytics') || 
-                        location.pathname === '/' && location.search.includes('app=true') ||
-                        ['/dashboard', '/kpi', '/portfolio', '/trends', '/report', '/settings'].includes(location.pathname);
+  
+  // Check if we're in the analytics workflow app
+  const isAnalyticsApp = ['/dashboard', '/kpi', '/portfolio', '/trends', '/report', '/settings'].includes(location.pathname);
 
   if (isAnalyticsApp) {
     return <>{children}</>;
@@ -139,10 +139,6 @@ const AppContent: React.FC = () => {
   const [showAuthModal, setShowAuthModal] = useState(false);
   const location = useLocation();
 
-  // Check if we're in the analytics app
-  const isAnalyticsRoute = ['/dashboard', '/kpi', '/portfolio', '/trends', '/report', '/settings'].includes(location.pathname) ||
-                          (location.pathname === '/' && location.search.includes('app=true'));
-
   // Handle auth modal for marketing pages
   useEffect(() => {
     if (location.pathname === '/auth' && !user) {
@@ -155,8 +151,8 @@ const AppContent: React.FC = () => {
   return (
     <LayoutWrapper>
       <Routes>
-        {/* Marketing Website Routes */}
-        <Route path="/" element={user && !location.search.includes('app=true') ? <Navigate to="/dashboard" /> : <HomePage />} />
+        {/* Marketing Website Routes - Always accessible */}
+        <Route path="/home" element={<HomePage />} />
         <Route path="/features" element={<FeaturesPage />} />
         <Route path="/pricing" element={<PricingPage />} />
         <Route path="/about" element={<AboutPage />} />
@@ -167,7 +163,18 @@ const AppContent: React.FC = () => {
         {/* Auth Route */}
         <Route path="/auth" element={user ? <Navigate to="/dashboard" /> : <HomePage />} />
         
-        {/* Analytics App Routes */}
+        {/* Root route - redirect based on auth status */}
+        <Route path="/" element={
+          user ? (
+            <AnalyticsAppLayout>
+              <DataUploadStep />
+            </AnalyticsAppLayout>
+          ) : (
+            <HomePage />
+          )
+        } />
+        
+        {/* Analytics App Routes - Protected */}
         <Route path="/dashboard" element={
           <ProtectedRoute>
             <AnalyticsAppLayout>
