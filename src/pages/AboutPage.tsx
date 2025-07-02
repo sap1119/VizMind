@@ -1,5 +1,5 @@
 import React from 'react';
-import { Users, Target, Award, Globe, Heart, Lightbulb, Calendar, Rocket, Zap } from 'lucide-react';
+import { Users, Target, Award, Globe, Heart, Lightbulb, Calendar, Rocket, Zap, Brain, Shield, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export const AboutPage: React.FC = () => {
@@ -31,58 +31,81 @@ export const AboutPage: React.FC = () => {
       year: 'March 2025',
       title: 'Company Founded',
       description: 'VizMind was founded with a vision to democratize data analytics and make AI-powered insights accessible to businesses of all sizes.',
-      status: 'completed'
+      status: 'completed',
+      icon: Rocket
     },
     {
       year: 'June 2025',
-      title: 'First Beta Product',
-      description: 'Launched our first beta version with core analytics features, dashboard creation, and basic AI insights to early adopters.',
-      status: 'completed'
+      title: 'First Beta Product Launch',
+      description: 'Successfully launched our first beta version with core analytics features, dashboard creation, and basic AI insights to early adopters.',
+      status: 'completed',
+      icon: Target
     },
     {
       year: 'Q4 2025',
-      title: 'AI Integration Enhancement',
-      description: 'Planning to introduce advanced AI-powered features including natural language queries, automated anomaly detection, and predictive analytics.',
-      status: 'planned'
+      title: 'Advanced AI Integration',
+      description: 'Planning to introduce revolutionary AI-powered features including natural language queries, automated anomaly detection, and predictive analytics that will transform how users interact with data.',
+      status: 'planned',
+      icon: Brain
     },
     {
       year: '2026',
-      title: 'Enterprise Growth',
-      description: 'Expanding to serve enterprise customers with advanced security features, custom integrations, and dedicated support teams.',
-      status: 'planned'
+      title: 'Enterprise Growth & Expansion',
+      description: 'Scaling to serve enterprise customers with advanced security features, custom integrations, dedicated support teams, and white-label solutions for large organizations.',
+      status: 'planned',
+      icon: Shield
     },
     {
       year: '2027',
       title: 'Global Expansion',
-      description: 'International expansion with localized features, multi-language support, and regional data centers for optimal performance.',
-      status: 'planned'
+      description: 'International expansion with localized features, multi-language support, regional data centers, and partnerships with global technology leaders.',
+      status: 'planned',
+      icon: Globe
     }
   ];
 
   const upcomingFeatures = [
     {
+      icon: Brain,
+      title: 'AI Assistant with Natural Language',
+      description: 'Ask questions about your data in plain English and get instant, intelligent responses',
+      timeline: 'Q4 2025',
+      highlight: true
+    },
+    {
       icon: Zap,
-      title: 'Advanced AI Assistant',
-      description: 'Natural language data queries and automated insight generation',
-      timeline: 'Q4 2025'
+      title: 'Real-time Collaboration Suite',
+      description: 'Live dashboard editing, team workspaces, and instant sharing capabilities',
+      timeline: 'Q1 2026',
+      highlight: false
+    },
+    {
+      icon: Shield,
+      title: 'Enterprise Security Platform',
+      description: 'Advanced security, compliance tools, and custom integrations for large organizations',
+      timeline: 'Q2 2026',
+      highlight: true
     },
     {
       icon: Globe,
-      title: 'Real-time Collaboration',
-      description: 'Live dashboard editing and team collaboration features',
-      timeline: 'Q1 2026'
+      title: 'Mobile Analytics Apps',
+      description: 'Native iOS and Android apps for analytics on the go with offline capabilities',
+      timeline: 'Q3 2026',
+      highlight: false
     },
     {
-      icon: Rocket,
-      title: 'Enterprise Suite',
-      description: 'Advanced security, custom integrations, and white-label options',
-      timeline: 'Q2 2026'
+      icon: Sparkles,
+      title: 'Automated Insight Engine',
+      description: 'AI that automatically discovers patterns and generates actionable business insights',
+      timeline: 'Q4 2026',
+      highlight: true
     },
     {
       icon: Target,
-      title: 'Mobile Applications',
-      description: 'Native iOS and Android apps for analytics on the go',
-      timeline: 'Q3 2026'
+      title: 'Industry-Specific Solutions',
+      description: 'Specialized analytics packages for healthcare, finance, retail, and manufacturing',
+      timeline: '2027',
+      highlight: false
     }
   ];
 
@@ -115,7 +138,7 @@ export const AboutPage: React.FC = () => {
               className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto"
             >
               Founded in March 2025, VizMind is on a mission to make powerful data analytics 
-              accessible to everyone while keeping your data private and secure.
+              accessible to everyone while keeping your data private and secure. We're just getting started!
             </motion.p>
           </div>
         </div>
@@ -144,10 +167,14 @@ export const AboutPage: React.FC = () => {
                 revolutionize how businesses interact with their data.
               </p>
               <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 p-6 rounded-lg border border-blue-200 dark:border-blue-800">
-                <h3 className="font-semibold text-gray-900 dark:text-white mb-2">🚀 What's Coming Next</h3>
+                <h3 className="font-semibold text-gray-900 dark:text-white mb-2 flex items-center">
+                  <Rocket className="w-5 h-5 mr-2 text-blue-600" />
+                  What's Coming Next
+                </h3>
                 <p className="text-gray-600 dark:text-gray-300">
                   We're actively developing advanced AI features, enterprise-grade security, 
-                  and global expansion capabilities. Join us on this exciting journey!
+                  and global expansion capabilities. Our roadmap includes revolutionary features 
+                  that will transform how businesses analyze and understand their data.
                 </p>
               </div>
             </motion.div>
@@ -224,50 +251,55 @@ export const AboutPage: React.FC = () => {
           <div className="relative">
             <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-gray-200 dark:bg-gray-700"></div>
             
-            {milestones.map((milestone, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className={`relative flex items-center mb-12 ${
-                  index % 2 === 0 ? 'justify-start' : 'justify-end'
-                }`}
-              >
-                <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8' : 'pl-8'}`}>
-                  <div className={`bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 ${
-                    index % 2 === 0 ? 'text-right' : 'text-left'
-                  }`}>
-                    <div className="flex items-center justify-between mb-2">
-                      <div className={`text-lg font-bold ${
-                        milestone.status === 'completed' 
-                          ? 'text-green-600 dark:text-green-400' 
-                          : 'text-blue-600 dark:text-blue-400'
-                      } ${index % 2 === 0 ? 'order-2' : 'order-1'}`}>
-                        {milestone.year}
+            {milestones.map((milestone, index) => {
+              const Icon = milestone.icon;
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  className={`relative flex items-center mb-12 ${
+                    index % 2 === 0 ? 'justify-start' : 'justify-end'
+                  }`}
+                >
+                  <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8' : 'pl-8'}`}>
+                    <div className={`bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 ${
+                      index % 2 === 0 ? 'text-right' : 'text-left'
+                    }`}>
+                      <div className="flex items-center justify-between mb-2">
+                        <div className={`text-lg font-bold ${
+                          milestone.status === 'completed' 
+                            ? 'text-green-600 dark:text-green-400' 
+                            : 'text-blue-600 dark:text-blue-400'
+                        } ${index % 2 === 0 ? 'order-2' : 'order-1'}`}>
+                          {milestone.year}
+                        </div>
+                        <span className={`px-3 py-1 text-xs rounded-full font-medium ${
+                          milestone.status === 'completed'
+                            ? 'bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400'
+                            : 'bg-blue-100 text-blue-800 dark:bg-blue-900/20 dark:text-blue-400'
+                        } ${index % 2 === 0 ? 'order-1' : 'order-2'}`}>
+                          {milestone.status === 'completed' ? '✓ Completed' : '🚀 Planned'}
+                        </span>
                       </div>
-                      <span className={`px-2 py-1 text-xs rounded-full ${
-                        milestone.status === 'completed'
-                          ? 'bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400'
-                          : 'bg-blue-100 text-blue-800 dark:bg-blue-900/20 dark:text-blue-400'
-                      } ${index % 2 === 0 ? 'order-1' : 'order-2'}`}>
-                        {milestone.status === 'completed' ? '✓ Completed' : '🚀 Planned'}
-                      </span>
+                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                        {milestone.title}
+                      </h3>
+                      <p className="text-gray-600 dark:text-gray-400">
+                        {milestone.description}
+                      </p>
                     </div>
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                      {milestone.title}
-                    </h3>
-                    <p className="text-gray-600 dark:text-gray-400">
-                      {milestone.description}
-                    </p>
                   </div>
-                </div>
-                
-                <div className={`absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full border-4 border-white dark:border-gray-900 ${
-                  milestone.status === 'completed' ? 'bg-green-600' : 'bg-blue-600'
-                }`}></div>
-              </motion.div>
-            ))}
+                  
+                  <div className={`absolute left-1/2 transform -translate-x-1/2 w-12 h-12 rounded-full border-4 border-white dark:border-gray-900 flex items-center justify-center ${
+                    milestone.status === 'completed' ? 'bg-green-600' : 'bg-blue-600'
+                  }`}>
+                    <Icon className="w-5 h-5 text-white" />
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -277,14 +309,14 @@ export const AboutPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              Coming Soon
+              Exciting Features Coming Soon
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300">
-              Exciting features we're building for the future
+              Revolutionary capabilities we're building for the future of analytics
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {upcomingFeatures.map((feature, index) => {
               const Icon = feature.icon;
               return (
@@ -293,14 +325,23 @@ export const AboutPage: React.FC = () => {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 text-center relative overflow-hidden"
+                  className={`bg-white dark:bg-gray-900 p-6 rounded-xl shadow-sm border text-center relative overflow-hidden ${
+                    feature.highlight 
+                      ? 'border-blue-300 dark:border-blue-600 ring-2 ring-blue-100 dark:ring-blue-900/20' 
+                      : 'border-gray-200 dark:border-gray-700'
+                  }`}
                 >
-                  <div className="absolute top-2 right-2">
+                  {feature.highlight && (
+                    <div className="absolute top-0 right-0 bg-gradient-to-l from-blue-500 to-purple-600 text-white px-3 py-1 text-xs font-bold rounded-bl-lg">
+                      PRIORITY
+                    </div>
+                  )}
+                  <div className="absolute top-2 left-2">
                     <span className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-2 py-1 rounded-full text-xs font-medium">
                       {feature.timeline}
                     </span>
                   </div>
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center mx-auto mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center mx-auto mb-4 mt-6">
                     <Icon className="w-6 h-6 text-white" />
                   </div>
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
@@ -324,12 +365,12 @@ export const AboutPage: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Join Our Journey
+              Join Our Journey to the Future
             </h2>
             <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
-              We're building something amazing and we're just getting started. Our vision is to create 
+              We're building something revolutionary and we're just getting started. Our vision is to create 
               a world where every business decision is backed by intelligent, accessible, and private 
-              data insights. Be part of the future of analytics.
+              data insights. Be part of the analytics revolution.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
