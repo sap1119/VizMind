@@ -86,7 +86,6 @@ export const WorkflowSidebar: React.FC = () => {
             <h1 className="text-lg font-black tracking-tight text-gray-900 dark:text-white">
               VIZMIND
             </h1>
-            <p className="text-xs text-gray-600 dark:text-gray-400 font-medium">Analytics Workflow</p>
           </div>
         </div>
       </div>
