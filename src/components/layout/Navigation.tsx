@@ -55,10 +55,13 @@ export const Navigation: React.FC = () => {
               alt="VizMind Logo" 
               className="w-10 h-10"
             />
-            <div>
+            <div className="flex items-baseline space-x-1">
               <h1 className="text-xl font-black tracking-tight text-gray-900 dark:text-white">
                 VIZMIND
               </h1>
+              <span className="text-xs font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent animate-pulse">
+                BETA
+              </span>
             </div>
           </Link>
 

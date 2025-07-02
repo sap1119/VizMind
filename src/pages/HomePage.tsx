@@ -85,9 +85,24 @@ export const HomePage: React.FC = () => {
         <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
+            {/* Beta Badge */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/20 dark:to-purple-900/20 px-4 py-2 rounded-full border border-blue-200 dark:border-blue-800 mb-6"
+            >
+              <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                🚀 Now in Beta - Experience the Future of Analytics
+              </span>
+              <span className="text-xs font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent animate-pulse">
+                BETA
+              </span>
+            </motion.div>
+
             <motion.h1 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
               className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6"
             >
               Transform Data Into
@@ -97,7 +112,7 @@ export const HomePage: React.FC = () => {
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
+              transition={{ delay: 0.2 }}
               className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto"
             >
               VizMind's AI-powered analytics platform helps businesses make data-driven decisions with 
@@ -107,14 +122,14 @@ export const HomePage: React.FC = () => {
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
+              transition={{ delay: 0.3 }}
               className="flex flex-col sm:flex-row gap-4 justify-center"
             >
               <Link
                 to="/auth"
                 className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all text-lg font-medium"
               >
-                Start Free Trial
+                Try Beta Version
                 <ArrowRight className="w-5 h-5 ml-2 inline" />
               </Link>
               <Link
@@ -326,13 +341,21 @@ export const HomePage: React.FC = () => {
             Join thousands of companies using VizMind to make better data-driven decisions. 
             Your data stays private and secure with our zero-storage policy.
           </p>
-          <Link
-            to="/auth"
-            className="inline-flex items-center px-8 py-4 bg-white text-blue-600 rounded-lg hover:bg-gray-50 transition-all text-lg font-medium"
-          >
-            Get Started Free
-            <ArrowRight className="w-5 h-5 ml-2" />
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              to="/auth"
+              className="inline-flex items-center px-8 py-4 bg-white text-blue-600 rounded-lg hover:bg-gray-50 transition-all text-lg font-medium"
+            >
+              Try Beta Version
+              <ArrowRight className="w-5 h-5 ml-2" />
+            </Link>
+            <Link
+              to="/features"
+              className="inline-flex items-center px-8 py-4 border border-white text-white rounded-lg hover:bg-white hover:text-blue-600 transition-all text-lg font-medium"
+            >
+              Learn More
+            </Link>
+          </div>
         </div>
       </section>
     </div>
