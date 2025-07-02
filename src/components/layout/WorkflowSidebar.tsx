@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import { useData } from '../../contexts/DataContext';
 import { useTheme } from '../../contexts/ThemeContext';
 import { 
-  BarChart3, 
   Database, 
   LayoutDashboard, 
   Target, 
@@ -41,7 +40,7 @@ const workflowSteps = [
     step: 4, 
     name: 'Portfolio', 
     href: '/portfolio', 
-    icon: BarChart3,
+    icon: LayoutDashboard,
     description: 'Analyze components'
   },
   { 
@@ -78,21 +77,23 @@ export const WorkflowSidebar: React.FC = () => {
     <div className="flex flex-col w-80 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 transition-colors">
       <div className="flex items-center h-16 px-6 border-b border-gray-200 dark:border-gray-700">
         <div className="flex items-center space-x-3">
-          <div className="p-2 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl">
-            <BarChart3 className="w-6 h-6 text-white" />
-          </div>
+          <img 
+            src="/VizMind Logo - Flat Vector Style.png" 
+            alt="VizMind Logo" 
+            className="w-8 h-8"
+          />
           <div>
-            <h1 className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              VizMind
+            <h1 className="text-lg font-black tracking-tight text-gray-900 dark:text-white">
+              VIZMIND
             </h1>
-            <p className="text-xs text-gray-600 dark:text-gray-400">Analytics Workflow</p>
+            <p className="text-xs text-gray-600 dark:text-gray-400 font-medium">Analytics Workflow</p>
           </div>
         </div>
       </div>
 
       <nav className="flex-1 px-4 py-6">
         <div className="space-y-2">
-          <h2 className="text-sm font-semibold text-gray-900 dark:text-white mb-4">Analytics Workflow</h2>
+          <h2 className="text-sm font-bold text-gray-900 dark:text-white mb-4">Analytics Workflow</h2>
           
           {workflowSteps.map((item) => {
             const Icon = item.icon;
@@ -140,13 +141,13 @@ export const WorkflowSidebar: React.FC = () => {
                     <div className="flex-1">
                       <div className="flex items-center space-x-2">
                         <Icon className="w-4 h-4" />
-                        <span className="font-medium">{item.name}</span>
+                        <span className="font-semibold">{item.name}</span>
                       </div>
-                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{item.description}</p>
+                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 font-medium">{item.description}</p>
                     </div>
                   </div>
                   
-                  <div className="text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 px-2 py-1 rounded-full">
+                  <div className="text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 px-2 py-1 rounded-full font-bold">
                     {item.step}
                   </div>
                 </NavLink>
@@ -168,13 +169,13 @@ export const WorkflowSidebar: React.FC = () => {
             }
           >
             <Settings className="w-5 h-5 mr-3" />
-            Settings
+            <span className="font-semibold">Settings</span>
           </NavLink>
         </div>
 
         {/* Progress Summary */}
         <div className="mt-8 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
-          <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-2">Progress</h3>
+          <h3 className="text-sm font-bold text-gray-900 dark:text-white mb-2">Progress</h3>
           <div className="flex items-center space-x-2 mb-2">
             <div className="flex-1 bg-gray-200 dark:bg-gray-600 rounded-full h-2">
               <div 
@@ -182,11 +183,11 @@ export const WorkflowSidebar: React.FC = () => {
                 style={{ width: `${(completedSteps.length / workflowSteps.length) * 100}%` }}
               ></div>
             </div>
-            <span className="text-xs text-gray-600 dark:text-gray-400">
+            <span className="text-xs text-gray-600 dark:text-gray-400 font-bold">
               {completedSteps.length}/{workflowSteps.length}
             </span>
           </div>
-          <p className="text-xs text-gray-600 dark:text-gray-400">
+          <p className="text-xs text-gray-600 dark:text-gray-400 font-medium">
             {completedSteps.length === 0 && 'Start by uploading your data'}
             {completedSteps.length > 0 && completedSteps.length < workflowSteps.length && 'Continue to next step'}
             {completedSteps.length === workflowSteps.length && 'Workflow complete! Download your report'}

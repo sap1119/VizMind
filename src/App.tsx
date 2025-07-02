@@ -23,7 +23,7 @@ import { AboutPage } from './pages/AboutPage';
 import { TeamPage } from './pages/TeamPage';
 import { BlogPage } from './pages/BlogPage';
 import { NewsPage } from './pages/NewsPage';
-import { BarChart3, Brain, Database, Sparkles, LogIn } from 'lucide-react';
+import { LogIn } from 'lucide-react';
 
 // Error Boundary Component
 class ErrorBoundary extends React.Component<
@@ -49,7 +49,11 @@ class ErrorBoundary extends React.Component<
         <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900">
           <div className="text-center p-8">
             <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <BarChart3 className="w-8 h-8 text-red-600" />
+              <img 
+                src="/VizMind Logo - Flat Vector Style.png" 
+                alt="VizMind Logo" 
+                className="w-8 h-8"
+              />
             </div>
             <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
               Something went wrong
@@ -59,7 +63,7 @@ class ErrorBoundary extends React.Component<
             </p>
             <button
               onClick={() => window.location.reload()}
-              className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all"
+              className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all font-semibold"
             >
               Reload Page
             </button>
@@ -101,7 +105,7 @@ const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) =
       <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900">
         <div className="text-center">
           <div className="animate-spin w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full mx-auto mb-4"></div>
-          <p className="text-gray-600 dark:text-gray-400">Loading VizMind...</p>
+          <p className="text-gray-600 dark:text-gray-400 font-medium">Loading VizMind...</p>
         </div>
       </div>
     );

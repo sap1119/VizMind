@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { BarChart3, Twitter, Linkedin, Github, Mail, MapPin, Phone } from 'lucide-react';
+import { Twitter, Linkedin, Github, Mail, MapPin, Phone } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   const footerLinks = {
@@ -37,12 +37,14 @@ export const Footer: React.FC = () => {
           {/* Company Info */}
           <div className="lg:col-span-2">
             <Link to="/" className="flex items-center space-x-3 mb-6">
-              <div className="p-2 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl">
-                <BarChart3 className="w-6 h-6 text-white" />
-              </div>
+              <img 
+                src="/VizMind Logo - Flat Vector Style.png" 
+                alt="VizMind Logo" 
+                className="w-10 h-10 filter brightness-0 invert"
+              />
               <div>
-                <h1 className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                  VizMind
+                <h1 className="text-xl font-black tracking-tight text-white">
+                  VIZMIND
                 </h1>
               </div>
             </Link>
@@ -70,13 +72,13 @@ export const Footer: React.FC = () => {
 
           {/* Product Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Product</h3>
+            <h3 className="text-lg font-bold mb-4">Product</h3>
             <ul className="space-y-2">
               {footerLinks.product.map((link) => (
                 <li key={link.name}>
                   <Link
                     to={link.href}
-                    className="text-gray-400 hover:text-white transition-colors"
+                    className="text-gray-400 hover:text-white transition-colors font-medium"
                   >
                     {link.name}
                   </Link>
@@ -87,13 +89,13 @@ export const Footer: React.FC = () => {
 
           {/* Company Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Company</h3>
+            <h3 className="text-lg font-bold mb-4">Company</h3>
             <ul className="space-y-2">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
                   <Link
                     to={link.href}
-                    className="text-gray-400 hover:text-white transition-colors"
+                    className="text-gray-400 hover:text-white transition-colors font-medium"
                   >
                     {link.name}
                   </Link>
@@ -104,13 +106,13 @@ export const Footer: React.FC = () => {
 
           {/* Resources Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Resources</h3>
+            <h3 className="text-lg font-bold mb-4">Resources</h3>
             <ul className="space-y-2">
               {footerLinks.resources.map((link) => (
                 <li key={link.name}>
                   <Link
                     to={link.href}
-                    className="text-gray-400 hover:text-white transition-colors"
+                    className="text-gray-400 hover:text-white transition-colors font-medium"
                   >
                     {link.name}
                   </Link>
@@ -121,13 +123,13 @@ export const Footer: React.FC = () => {
 
           {/* Legal Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Legal</h3>
+            <h3 className="text-lg font-bold mb-4">Legal</h3>
             <ul className="space-y-2">
               {footerLinks.legal.map((link) => (
                 <li key={link.name}>
                   <Link
                     to={link.href}
-                    className="text-gray-400 hover:text-white transition-colors"
+                    className="text-gray-400 hover:text-white transition-colors font-medium"
                   >
                     {link.name}
                   </Link>
@@ -140,7 +142,7 @@ export const Footer: React.FC = () => {
         {/* Bottom Section */}
         <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row items-center justify-between">
-            <div className="text-gray-400 text-sm mb-4 md:mb-0">
+            <div className="text-gray-400 text-sm mb-4 md:mb-0 font-medium">
               © 2024 VizMind Analytics. All rights reserved.
             </div>
             

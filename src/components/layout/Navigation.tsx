@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { BarChart3, Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { useTheme } from '../../contexts/ThemeContext';
 import { useAuth } from '../../contexts/AuthContext';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -50,12 +50,14 @@ export const Navigation: React.FC = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">
-            <div className="p-2 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl">
-              <BarChart3 className="w-6 h-6 text-white" />
-            </div>
+            <img 
+              src="/VizMind Logo - Flat Vector Style.png" 
+              alt="VizMind Logo" 
+              className="w-10 h-10"
+            />
             <div>
-              <h1 className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                VizMind
+              <h1 className="text-xl font-black tracking-tight text-gray-900 dark:text-white">
+                VIZMIND
               </h1>
             </div>
           </Link>
@@ -76,7 +78,7 @@ export const Navigation: React.FC = () => {
                       if (item.name === 'Company') setShowCompanyMenu(false);
                     }}
                   >
-                    <button className="flex items-center space-x-1 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                    <button className="flex items-center space-x-1 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">
                       <span>{item.name}</span>
                       <ChevronDown className="w-4 h-4" />
                     </button>
@@ -93,7 +95,7 @@ export const Navigation: React.FC = () => {
                             <Link
                               key={subItem.name}
                               to={subItem.href}
-                              className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                              className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium"
                             >
                               {subItem.name}
                             </Link>
@@ -105,8 +107,8 @@ export const Navigation: React.FC = () => {
                 ) : (
                   <Link
                     to={item.href}
-                    className={`text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors ${
-                      isActive(item.href) ? 'text-blue-600 dark:text-blue-400 font-medium' : ''
+                    className={`text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium ${
+                      isActive(item.href) ? 'text-blue-600 dark:text-blue-400 font-semibold' : ''
                     }`}
                   >
                     {item.name}
@@ -128,7 +130,7 @@ export const Navigation: React.FC = () => {
             {user ? (
               <Link
                 to="/dashboard"
-                className="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all"
+                className="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all font-semibold"
               >
                 Dashboard
               </Link>
@@ -136,13 +138,13 @@ export const Navigation: React.FC = () => {
               <>
                 <Link
                   to="/auth"
-                  className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium"
                 >
                   Sign In
                 </Link>
                 <Link
                   to="/auth"
-                  className="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all"
+                  className="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all font-semibold"
                 >
                   Get Started
                 </Link>
@@ -175,14 +177,14 @@ export const Navigation: React.FC = () => {
                   <div key={item.name}>
                     {item.submenu ? (
                       <div>
-                        <div className="px-4 py-2 text-gray-700 dark:text-gray-300 font-medium">
+                        <div className="px-4 py-2 text-gray-700 dark:text-gray-300 font-semibold">
                           {item.name}
                         </div>
                         {item.submenu.map((subItem) => (
                           <Link
                             key={subItem.name}
                             to={subItem.href}
-                            className="block px-8 py-2 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                            className="block px-8 py-2 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium"
                             onClick={() => setIsOpen(false)}
                           >
                             {subItem.name}
@@ -192,8 +194,8 @@ export const Navigation: React.FC = () => {
                     ) : (
                       <Link
                         to={item.href}
-                        className={`block px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors ${
-                          isActive(item.href) ? 'text-blue-600 dark:text-blue-400 font-medium' : ''
+                        className={`block px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium ${
+                          isActive(item.href) ? 'text-blue-600 dark:text-blue-400 font-semibold' : ''
                         }`}
                         onClick={() => setIsOpen(false)}
                       >
@@ -206,7 +208,7 @@ export const Navigation: React.FC = () => {
                 <div className="px-4 py-2 border-t border-gray-200 dark:border-gray-700 mt-4 pt-4">
                   <button
                     onClick={toggleTheme}
-                    className="block w-full text-left text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors mb-2"
+                    className="block w-full text-left text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors mb-2 font-medium"
                   >
                     {isDarkMode ? '☀️ Light Mode' : '🌙 Dark Mode'}
                   </button>
@@ -214,7 +216,7 @@ export const Navigation: React.FC = () => {
                   {user ? (
                     <Link
                       to="/dashboard"
-                      className="block w-full text-center px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg"
+                      className="block w-full text-center px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg font-semibold"
                       onClick={() => setIsOpen(false)}
                     >
                       Dashboard
@@ -223,14 +225,14 @@ export const Navigation: React.FC = () => {
                     <div className="space-y-2">
                       <Link
                         to="/auth"
-                        className="block text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                        className="block text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium"
                         onClick={() => setIsOpen(false)}
                       >
                         Sign In
                       </Link>
                       <Link
                         to="/auth"
-                        className="block w-full text-center px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg"
+                        className="block w-full text-center px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg font-semibold"
                         onClick={() => setIsOpen(false)}
                       >
                         Get Started
