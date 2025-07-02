@@ -11,9 +11,7 @@ import {
   CheckCircle,
   Circle,
   Lock,
-  Settings,
-  Home,
-  ExternalLink
+  Settings
 } from 'lucide-react';
 
 const workflowSteps = [
@@ -61,13 +59,6 @@ const workflowSteps = [
   },
 ];
 
-const marketingPages = [
-  { name: 'Home', href: '/home', icon: Home },
-  { name: 'Features', href: '/features', icon: Target },
-  { name: 'Blog', href: '/blog', icon: FileText },
-  { name: 'News', href: '/news', icon: TrendingUp },
-];
-
 export const WorkflowSidebar: React.FC = () => {
   const { currentStep, completedSteps, parsedData } = useData();
   const { isDarkMode } = useTheme();
@@ -100,27 +91,6 @@ export const WorkflowSidebar: React.FC = () => {
       </div>
 
       <nav className="flex-1 px-4 py-6 overflow-y-auto">
-        {/* Marketing Pages Section */}
-        <div className="mb-8">
-          <h2 className="text-sm font-bold text-gray-900 dark:text-white mb-4">Website Pages</h2>
-          <div className="space-y-1">
-            {marketingPages.map((page) => {
-              const Icon = page.icon;
-              return (
-                <Link
-                  key={page.name}
-                  to={page.href}
-                  className="flex items-center px-3 py-2 text-sm font-medium rounded-lg transition-colors text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white group"
-                >
-                  <Icon className="w-4 h-4 mr-3" />
-                  <span className="font-semibold">{page.name}</span>
-                  <ExternalLink className="w-3 h-3 ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
-                </Link>
-              );
-            })}
-          </div>
-        </div>
-
         {/* Analytics Workflow Section */}
         <div className="space-y-2">
           <h2 className="text-sm font-bold text-gray-900 dark:text-white mb-4">Analytics Workflow</h2>
