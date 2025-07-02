@@ -37,12 +37,6 @@ export const Footer: React.FC = () => {
           {/* Company Info */}
           <div className="lg:col-span-2">
             <Link to="/" className="flex items-center space-x-3 mb-6">
-              <img 
-                src="/VizMind Logo - Flat Vector Style.png" 
-                alt="VizMind Logo" 
-                className="w-10 h-10"
-                style={{ filter: 'brightness(0) invert(1)' }}
-              />
               <div>
                 <h1 className="text-xl font-black tracking-tight text-white">
                   VIZMIND
