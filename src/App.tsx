@@ -23,7 +23,6 @@ import { AboutPage } from './pages/AboutPage';
 import { TeamPage } from './pages/TeamPage';
 import { BlogPage } from './pages/BlogPage';
 import { NewsPage } from './pages/NewsPage';
-import { LogIn } from 'lucide-react';
 
 // Error Boundary Component
 class ErrorBoundary extends React.Component<
@@ -76,23 +75,29 @@ class ErrorBoundary extends React.Component<
   }
 }
 
-// Layout wrapper component
-const LayoutWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const location = useLocation();
-  
-  // Check if we're in the analytics workflow app
-  const isAnalyticsApp = ['/dashboard', '/kpi', '/portfolio', '/trends', '/report', '/settings'].includes(location.pathname);
-
-  if (isAnalyticsApp) {
-    return <>{children}</>;
-  }
-
+// Marketing Layout Component
+const MarketingLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <>
       <Navigation />
       <main>{children}</main>
       <Footer />
     </>
+  );
+};
+
+// Analytics App Layout Component
+const AnalyticsAppLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  return (
+    <div className="h-screen flex bg-gray-50 dark:bg-gray-900">
+      <WorkflowSidebar />
+      <div className="flex-1 flex flex-col overflow-hidden">
+        <Header />
+        <main className="flex-1 overflow-auto">
+          {children}
+        </main>
+      </div>
+    </div>
   );
 };
 
@@ -112,25 +117,10 @@ const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) =
   }
   
   if (!user) {
-    return <Navigate to="/auth" replace />;
+    return <Navigate to="/" replace />;
   }
   
   return <>{children}</>;
-};
-
-// Analytics App Layout
-const AnalyticsAppLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  return (
-    <div className="h-screen flex bg-gray-50 dark:bg-gray-900">
-      <WorkflowSidebar />
-      <div className="flex-1 flex flex-col overflow-hidden">
-        <Header />
-        <main className="flex-1 overflow-auto">
-          {children}
-        </main>
-      </div>
-    </div>
-  );
 };
 
 // Main App Content
@@ -149,32 +139,67 @@ const AppContent: React.FC = () => {
   }, [location.pathname, user]);
 
   return (
-    <LayoutWrapper>
+    <>
       <Routes>
-        {/* Marketing Website Routes - Always accessible */}
-        <Route path="/home" element={<HomePage />} />
-        <Route path="/features" element={<FeaturesPage />} />
-        <Route path="/pricing" element={<PricingPage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/team" element={<TeamPage />} />
-        <Route path="/blog" element={<BlogPage />} />
-        <Route path="/news" element={<NewsPage />} />
-        
-        {/* Auth Route */}
-        <Route path="/auth" element={user ? <Navigate to="/dashboard" /> : <HomePage />} />
-        
-        {/* Root route - redirect based on auth status */}
+        {/* Marketing Website Routes - Always accessible to everyone */}
         <Route path="/" element={
-          user ? (
-            <AnalyticsAppLayout>
-              <DataUploadStep />
-            </AnalyticsAppLayout>
-          ) : (
+          <MarketingLayout>
             <HomePage />
+          </MarketingLayout>
+        } />
+        
+        <Route path="/home" element={
+          <MarketingLayout>
+            <HomePage />
+          </MarketingLayout>
+        } />
+        
+        <Route path="/features" element={
+          <MarketingLayout>
+            <FeaturesPage />
+          </MarketingLayout>
+        } />
+        
+        <Route path="/pricing" element={
+          <MarketingLayout>
+            <PricingPage />
+          </MarketingLayout>
+        } />
+        
+        <Route path="/about" element={
+          <MarketingLayout>
+            <AboutPage />
+          </MarketingLayout>
+        } />
+        
+        <Route path="/team" element={
+          <MarketingLayout>
+            <TeamPage />
+          </MarketingLayout>
+        } />
+        
+        <Route path="/blog" element={
+          <MarketingLayout>
+            <BlogPage />
+          </MarketingLayout>
+        } />
+        
+        <Route path="/news" element={
+          <MarketingLayout>
+            <NewsPage />
+          </MarketingLayout>
+        } />
+        
+        {/* Auth Route - Shows home page for non-authenticated users */}
+        <Route path="/auth" element={
+          user ? <Navigate to="/dashboard" /> : (
+            <MarketingLayout>
+              <HomePage />
+            </MarketingLayout>
           )
         } />
         
-        {/* Analytics App Routes - Protected */}
+        {/* Analytics App Routes - ONLY accessible when signed in */}
         <Route path="/dashboard" element={
           <ProtectedRoute>
             <AnalyticsAppLayout>
@@ -182,6 +207,7 @@ const AppContent: React.FC = () => {
             </AnalyticsAppLayout>
           </ProtectedRoute>
         } />
+        
         <Route path="/kpi" element={
           <ProtectedRoute>
             <AnalyticsAppLayout>
@@ -189,6 +215,7 @@ const AppContent: React.FC = () => {
             </AnalyticsAppLayout>
           </ProtectedRoute>
         } />
+        
         <Route path="/portfolio" element={
           <ProtectedRoute>
             <AnalyticsAppLayout>
@@ -196,6 +223,7 @@ const AppContent: React.FC = () => {
             </AnalyticsAppLayout>
           </ProtectedRoute>
         } />
+        
         <Route path="/trends" element={
           <ProtectedRoute>
             <AnalyticsAppLayout>
@@ -203,6 +231,7 @@ const AppContent: React.FC = () => {
             </AnalyticsAppLayout>
           </ProtectedRoute>
         } />
+        
         <Route path="/report" element={
           <ProtectedRoute>
             <AnalyticsAppLayout>
@@ -210,6 +239,7 @@ const AppContent: React.FC = () => {
             </AnalyticsAppLayout>
           </ProtectedRoute>
         } />
+        
         <Route path="/settings" element={
           <ProtectedRoute>
             <AnalyticsAppLayout>
@@ -218,7 +248,7 @@ const AppContent: React.FC = () => {
           </ProtectedRoute>
         } />
         
-        {/* Catch all route */}
+        {/* Catch all route - redirect to home page */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
 
@@ -234,7 +264,7 @@ const AppContent: React.FC = () => {
           }} 
         />
       )}
-    </LayoutWrapper>
+    </>
   );
 };
 
