@@ -98,13 +98,13 @@ export const Navigation: React.FC = () => {
                           initial={{ opacity: 0, y: 10 }}
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: 10 }}
-                          className="absolute top-full left-0 mt-2 w-72 glass rounded-2xl shadow-2xl border border-white/20 py-4 z-50"
+                          className="absolute top-full left-0 mt-2 w-72 bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-gray-200 dark:border-gray-700 py-4 z-50"
                         >
                           {item.submenu.map((subItem) => (
                             <Link
                               key={subItem.name}
                               to={subItem.href}
-                              className="block px-6 py-3 text-gray-700 dark:text-gray-300 hover:bg-white/10 hover:text-blue-600 dark:hover:text-blue-400 transition-colors group"
+                              className="block px-6 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400 transition-colors group"
                             >
                               <div className="font-semibold">{subItem.name}</div>
                               {subItem.description && (
