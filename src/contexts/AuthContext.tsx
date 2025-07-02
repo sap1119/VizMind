@@ -77,6 +77,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
               console.error('Error in profile update:', profileError);
             }
           }
+
+          // Redirect to home page after sign out
+          if (event === 'SIGNED_OUT') {
+            window.location.href = '/';
+          }
         } catch (error) {
           console.error('Error in auth state change:', error);
           setLoading(false);
@@ -163,7 +168,16 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         throw error;
       }
 
-      toast.success('Signed out successfully! Your premium session has ended.');
+      toast.success('Signed out successfully! Redirecting to home page...');
+      
+      // Clear any local state
+      setUser(null);
+      setSession(null);
+      
+      // Redirect to home page
+      setTimeout(() => {
+        window.location.href = '/';
+      }, 1000);
     } catch (error) {
       console.error('Sign out error:', error);
       throw error;
