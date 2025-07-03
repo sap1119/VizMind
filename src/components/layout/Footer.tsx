@@ -86,7 +86,7 @@ export const Footer: React.FC = () => {
                 <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
                   <Mail className="w-5 h-5 text-white" />
                 </div>
-                <span className="font-medium">hello@vizmind.com</span>
+                <span className="font-medium">sathyaedu119@gmail.com</span>
               </div>
             </div>
           </div>
@@ -130,7 +130,7 @@ export const Footer: React.FC = () => {
                 { icon: Twitter, href: 'https://twitter.com/vizmind', label: 'Twitter', color: 'from-blue-400 to-blue-600' },
                 { icon: Linkedin, href: 'https://linkedin.com/company/vizmind', label: 'LinkedIn', color: 'from-blue-600 to-blue-800' },
                 { icon: Github, href: 'https://github.com/vizmind', label: 'GitHub', color: 'from-gray-600 to-gray-800' },
-                { icon: Mail, href: 'mailto:hello@vizmind.com', label: 'Email', color: 'from-purple-500 to-pink-600' }
+                { icon: Mail, href: 'mailto:sathyaedu119@gmail.com', label: 'Email', color: 'from-purple-500 to-pink-600' }
               ].map((social) => {
                 const Icon = social.icon;
                 return (

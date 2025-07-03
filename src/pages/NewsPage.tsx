@@ -8,88 +8,48 @@ export const NewsPage: React.FC = () => {
   const newsItems = [
     {
       id: 1,
-      title: 'VizMind Raises $50M Series B to Accelerate AI-Powered Analytics',
-      summary: 'Leading venture capital firms invest in VizMind\'s vision to democratize data analytics through artificial intelligence.',
-      date: '2024-01-20',
-      category: 'Funding',
-      source: 'TechCrunch',
-      link: '#',
+      title: 'VizMind Launches Beta Version of AI-Powered Analytics Platform',
+      summary: 'Our new platform combines powerful data visualization with AI-driven insights to help businesses make better decisions.',
+      date: '2024-03-15',
+      category: 'Product',
+      source: 'VizMind Blog',
+      link: '/blog/1',
       featured: true
     },
     {
       id: 2,
-      title: 'VizMind Named Leader in Gartner Magic Quadrant for Analytics Platforms',
-      summary: 'Recognition for completeness of vision and ability to execute in the competitive analytics market.',
-      date: '2024-01-18',
-      category: 'Awards',
-      source: 'Gartner',
-      link: '#',
+      title: 'VizMind Introduces Interactive Dashboard Builder',
+      summary: 'New drag-and-drop interface allows users to create custom dashboards without coding knowledge.',
+      date: '2024-02-20',
+      category: 'Feature',
+      source: 'VizMind Blog',
+      link: '/blog/2',
       featured: false
     },
     {
       id: 3,
-      title: 'Partnership Announcement: VizMind Integrates with Salesforce',
-      summary: 'New integration allows Salesforce customers to access advanced analytics directly within their CRM workflow.',
-      date: '2024-01-15',
-      category: 'Partnership',
-      source: 'Business Wire',
-      link: '#',
+      title: 'VizMind Adds Advanced KPI Tracking Capabilities',
+      summary: 'New KPI tracking features help businesses monitor performance metrics with automated targets and alerts.',
+      date: '2024-01-25',
+      category: 'Feature',
+      source: 'VizMind Blog',
+      link: '/blog/3',
       featured: false
     },
     {
       id: 4,
-      title: 'VizMind Expands to European Market with London Office Opening',
-      summary: 'Strategic expansion includes new data centers and local support teams to serve European customers.',
-      date: '2024-01-12',
-      category: 'Expansion',
-      source: 'Reuters',
-      link: '#',
-      featured: false
-    },
-    {
-      id: 5,
-      title: 'CEO Sarah Chen Featured in Forbes "40 Under 40" List',
-      summary: 'Recognition for leadership in transforming how businesses approach data analytics and decision-making.',
+      title: 'VizMind Enhances Data Privacy with Zero-Storage Policy',
+      summary: 'Our commitment to data privacy means your sensitive information is never stored on our servers.',
       date: '2024-01-10',
-      category: 'Recognition',
-      source: 'Forbes',
-      link: '#',
-      featured: false
-    },
-    {
-      id: 6,
-      title: 'VizMind Achieves SOC 2 Type II Compliance',
-      summary: 'Enhanced security certification demonstrates commitment to protecting customer data and privacy.',
-      date: '2024-01-08',
       category: 'Security',
-      source: 'PR Newswire',
-      link: '#',
-      featured: false
-    },
-    {
-      id: 7,
-      title: 'New Study: VizMind Users Report 40% Faster Decision Making',
-      summary: 'Independent research shows significant productivity gains for organizations using VizMind analytics platform.',
-      date: '2024-01-05',
-      category: 'Research',
-      source: 'Harvard Business Review',
-      link: '#',
-      featured: false
-    },
-    {
-      id: 8,
-      title: 'VizMind Launches AI Assistant for Natural Language Queries',
-      summary: 'Revolutionary feature allows users to ask questions about their data in plain English and receive instant insights.',
-      date: '2024-01-03',
-      category: 'Product',
-      source: 'VentureBeat',
-      link: '#',
+      source: 'VizMind Blog',
+      link: '/blog/4',
       featured: false
     }
   ];
 
-  const categories = ['All', 'Funding', 'Awards', 'Partnership', 'Expansion', 'Recognition', 'Security', 'Research', 'Product'];
-  const years = ['2024', '2023', '2022'];
+  const categories = ['All', 'Product', 'Feature', 'Security'];
+  const years = ['2024'];
 
   const [selectedCategory, setSelectedCategory] = useState('All');
 
@@ -104,14 +64,9 @@ export const NewsPage: React.FC = () => {
 
   const getCategoryColor = (category: string) => {
     const colors = {
-      'Funding': 'bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400',
-      'Awards': 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/20 dark:text-yellow-400',
-      'Partnership': 'bg-blue-100 text-blue-800 dark:bg-blue-900/20 dark:text-blue-400',
-      'Expansion': 'bg-purple-100 text-purple-800 dark:bg-purple-900/20 dark:text-purple-400',
-      'Recognition': 'bg-pink-100 text-pink-800 dark:bg-pink-900/20 dark:text-pink-400',
-      'Security': 'bg-red-100 text-red-800 dark:bg-red-900/20 dark:text-red-400',
-      'Research': 'bg-indigo-100 text-indigo-800 dark:bg-indigo-900/20 dark:text-indigo-400',
-      'Product': 'bg-orange-100 text-orange-800 dark:bg-orange-900/20 dark:text-orange-400'
+      'Product': 'bg-blue-100 text-blue-800 dark:bg-blue-900/20 dark:text-blue-400',
+      'Feature': 'bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400',
+      'Security': 'bg-purple-100 text-purple-800 dark:bg-purple-900/20 dark:text-purple-400'
     };
     return colors[category as keyof typeof colors] || 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300';
   };
@@ -136,7 +91,7 @@ export const NewsPage: React.FC = () => {
             transition={{ delay: 0.1 }}
             className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto"
           >
-            Stay updated with the latest news, announcements, and milestones from VizMind.
+            Stay updated with the latest news, announcements, and features from VizMind.
           </motion.p>
 
           {/* Filters */}
@@ -302,7 +257,7 @@ export const NewsPage: React.FC = () => {
                 Download Press Kit
               </a>
               <a
-                href="/contact"
+                href="mailto:sathyaedu119@gmail.com"
                 className="px-6 py-3 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-all font-medium"
               >
                 Media Inquiries

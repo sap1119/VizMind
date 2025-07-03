@@ -23,6 +23,14 @@ import { AboutPage } from './pages/AboutPage';
 import { TeamPage } from './pages/TeamPage';
 import { BlogPage } from './pages/BlogPage';
 import { NewsPage } from './pages/NewsPage';
+import { CareersPage } from './pages/CareersPage';
+import { HelpCenterPage } from './pages/HelpCenterPage';
+import { CommunityPage } from './pages/CommunityPage';
+import { StatusPage } from './pages/StatusPage';
+import { PrivacyPolicyPage } from './pages/PrivacyPolicyPage';
+import { TermsOfServicePage } from './pages/TermsOfServicePage';
+import { CookiePolicyPage } from './pages/CookiePolicyPage';
+import { SecurityPage } from './pages/SecurityPage';
 
 // Error Boundary Component
 class ErrorBoundary extends React.Component<
@@ -184,9 +192,63 @@ const AppContent: React.FC = () => {
           </MarketingLayout>
         } />
         
+        <Route path="/blog/:id" element={
+          <MarketingLayout>
+            <BlogPage />
+          </MarketingLayout>
+        } />
+        
         <Route path="/news" element={
           <MarketingLayout>
             <NewsPage />
+          </MarketingLayout>
+        } />
+        
+        <Route path="/careers" element={
+          <MarketingLayout>
+            <CareersPage />
+          </MarketingLayout>
+        } />
+        
+        <Route path="/help" element={
+          <MarketingLayout>
+            <HelpCenterPage />
+          </MarketingLayout>
+        } />
+        
+        <Route path="/community" element={
+          <MarketingLayout>
+            <CommunityPage />
+          </MarketingLayout>
+        } />
+        
+        <Route path="/status" element={
+          <MarketingLayout>
+            <StatusPage />
+          </MarketingLayout>
+        } />
+        
+        <Route path="/privacy" element={
+          <MarketingLayout>
+            <PrivacyPolicyPage />
+          </MarketingLayout>
+        } />
+        
+        <Route path="/terms" element={
+          <MarketingLayout>
+            <TermsOfServicePage />
+          </MarketingLayout>
+        } />
+        
+        <Route path="/cookies" element={
+          <MarketingLayout>
+            <CookiePolicyPage />
+          </MarketingLayout>
+        } />
+        
+        <Route path="/security" element={
+          <MarketingLayout>
+            <SecurityPage />
           </MarketingLayout>
         } />
         

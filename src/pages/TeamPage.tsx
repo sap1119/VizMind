@@ -1,142 +1,79 @@
 import React from 'react';
-import { Linkedin, Twitter, Github, Mail } from 'lucide-react';
+import { Linkedin, Twitter, Github, Mail, Briefcase, Users, Code, Database, Server, PenTool } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 export const TeamPage: React.FC = () => {
   const leadership = [
     {
-      name: 'Sarah Chen',
-      role: 'CEO & Co-Founder',
-      bio: 'Former VP of Analytics at Google. 15+ years in data science and product leadership. PhD in Computer Science from Stanford.',
-      image: 'https://images.pexels.com/photos/3756679/pexels-photo-3756679.jpeg?auto=compress&cs=tinysrgb&w=400',
+      name: 'Pawar Sathyanarayana',
+      role: 'Founder & CEO',
+      bio: 'Experienced entrepreneur with a passion for data analytics and AI. Founded VizMind with a vision to make powerful analytics accessible to everyone while maintaining data privacy.',
       social: {
-        linkedin: '#',
-        twitter: '#',
-        email: 'sarah@vizmind.com'
-      }
-    },
-    {
-      name: 'Michael Rodriguez',
-      role: 'CTO & Co-Founder',
-      bio: 'Ex-Principal Engineer at Microsoft Azure. Expert in distributed systems and machine learning infrastructure. MS from MIT.',
-      image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400',
-      social: {
-        linkedin: '#',
-        github: '#',
-        email: 'michael@vizmind.com'
-      }
-    },
-    {
-      name: 'Emily Johnson',
-      role: 'VP of Product',
-      bio: 'Former Product Lead at Tableau. Passionate about making complex data accessible to everyone. MBA from Wharton.',
-      image: 'https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg?auto=compress&cs=tinysrgb&w=400',
-      social: {
-        linkedin: '#',
-        twitter: '#',
-        email: 'emily@vizmind.com'
-      }
-    },
-    {
-      name: 'David Kim',
-      role: 'VP of Engineering',
-      bio: 'Previously Senior Engineering Manager at Airbnb. Specializes in scalable data platforms and real-time analytics.',
-      image: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=400',
-      social: {
-        linkedin: '#',
-        github: '#',
-        email: 'david@vizmind.com'
+        linkedin: 'https://www.linkedin.com/in/pawar-sathyanarayana-714bb5201',
+        email: 'sathyaedu119@gmail.com'
       }
     }
   ];
 
-  const team = [
+  const aiTeam = [
     {
-      name: 'Alex Thompson',
-      role: 'Senior Data Scientist',
+      name: 'Gemini',
+      role: 'AI Technical Lead',
       department: 'Engineering',
-      image: 'https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=400'
+      description: 'Advanced AI system that helps develop and optimize VizMind\'s analytics algorithms and data processing capabilities.'
+    }
+  ];
+
+  const openPositions = [
+    {
+      title: 'Senior Frontend Engineer',
+      department: 'Engineering',
+      type: 'Full-time',
+      location: 'Remote',
+      icon: Code
     },
     {
-      name: 'Lisa Wang',
-      role: 'Lead UX Designer',
+      title: 'Backend Developer',
+      department: 'Engineering',
+      type: 'Full-time',
+      location: 'Remote',
+      icon: Server
+    },
+    {
+      title: 'UI/UX Designer',
       department: 'Design',
-      image: 'https://images.pexels.com/photos/3756681/pexels-photo-3756681.jpeg?auto=compress&cs=tinysrgb&w=400'
+      type: 'Full-time',
+      location: 'Remote',
+      icon: PenTool
     },
     {
-      name: 'James Wilson',
-      role: 'Senior Frontend Engineer',
+      title: 'Data Engineer',
       department: 'Engineering',
-      image: 'https://images.pexels.com/photos/2182973/pexels-photo-2182973.jpeg?auto=compress&cs=tinysrgb&w=400'
+      type: 'Full-time',
+      location: 'Remote',
+      icon: Database
     },
     {
-      name: 'Maria Garcia',
-      role: 'Product Marketing Manager',
+      title: 'DevOps Engineer',
+      department: 'Engineering',
+      type: 'Full-time',
+      location: 'Remote',
+      icon: Server
+    },
+    {
+      title: 'Product Marketing Manager',
       department: 'Marketing',
-      image: 'https://images.pexels.com/photos/3785077/pexels-photo-3785077.jpeg?auto=compress&cs=tinysrgb&w=400'
+      type: 'Full-time',
+      location: 'Remote',
+      icon: Briefcase
     },
     {
-      name: 'Ryan Park',
-      role: 'DevOps Engineer',
-      department: 'Engineering',
-      image: 'https://images.pexels.com/photos/2379003/pexels-photo-2379003.jpeg?auto=compress&cs=tinysrgb&w=400'
-    },
-    {
-      name: 'Sophie Brown',
-      role: 'Customer Success Manager',
-      department: 'Customer Success',
-      image: 'https://images.pexels.com/photos/3756680/pexels-photo-3756680.jpeg?auto=compress&cs=tinysrgb&w=400'
-    },
-    {
-      name: 'Carlos Martinez',
-      role: 'Backend Engineer',
-      department: 'Engineering',
-      image: 'https://images.pexels.com/photos/2182972/pexels-photo-2182972.jpeg?auto=compress&cs=tinysrgb&w=400'
-    },
-    {
-      name: 'Anna Kowalski',
-      role: 'Data Engineer',
-      department: 'Engineering',
-      image: 'https://images.pexels.com/photos/3785078/pexels-photo-3785078.jpeg?auto=compress&cs=tinysrgb&w=400'
-    }
-  ];
-
-  const departments = [
-    {
-      name: 'Engineering',
-      description: 'Building the future of data analytics',
-      count: 15,
-      color: 'blue'
-    },
-    {
-      name: 'Product',
-      description: 'Designing user-centric experiences',
-      count: 8,
-      color: 'purple'
-    },
-    {
-      name: 'Design',
-      description: 'Creating beautiful, intuitive interfaces',
-      count: 5,
-      color: 'green'
-    },
-    {
-      name: 'Marketing',
-      description: 'Spreading the word about VizMind',
-      count: 6,
-      color: 'orange'
-    },
-    {
-      name: 'Customer Success',
-      description: 'Ensuring customer satisfaction and growth',
-      count: 4,
-      color: 'red'
-    },
-    {
-      name: 'Operations',
-      description: 'Keeping everything running smoothly',
-      count: 3,
-      color: 'indigo'
+      title: 'Senior Data Scientist',
+      department: 'Data Science',
+      type: 'Full-time',
+      location: 'Remote',
+      icon: Database
     }
   ];
 
@@ -160,8 +97,8 @@ export const TeamPage: React.FC = () => {
             transition={{ delay: 0.1 }}
             className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto"
           >
-            We're a diverse team of engineers, designers, and data scientists passionate about 
-            making data analytics accessible to everyone.
+            We're building the future of data analytics with a focus on privacy, 
+            accessibility, and powerful insights.
           </motion.p>
         </div>
       </section>
@@ -171,30 +108,28 @@ export const TeamPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              Leadership Team
+              Leadership
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300">
-              The visionaries leading VizMind's mission
+              The visionary behind VizMind
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="flex justify-center">
             {leadership.map((leader, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden"
+                className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden max-w-2xl"
               >
                 <div className="p-8">
-                  <div className="flex items-start space-x-6">
-                    <img
-                      src={leader.image}
-                      alt={leader.name}
-                      className="w-24 h-24 rounded-full object-cover"
-                    />
-                    <div className="flex-1">
+                  <div className="flex flex-col items-center text-center">
+                    <div className="w-24 h-24 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white text-3xl font-bold mb-4">
+                      {leader.name.charAt(0)}
+                    </div>
+                    <div>
                       <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1">
                         {leader.name}
                       </h3>
@@ -204,20 +139,10 @@ export const TeamPage: React.FC = () => {
                       <p className="text-gray-600 dark:text-gray-400 mb-4">
                         {leader.bio}
                       </p>
-                      <div className="flex space-x-3">
+                      <div className="flex justify-center space-x-3">
                         {leader.social.linkedin && (
-                          <a href={leader.social.linkedin} className="text-gray-400 hover:text-blue-600 transition-colors">
+                          <a href={leader.social.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-600 transition-colors">
                             <Linkedin className="w-5 h-5" />
-                          </a>
-                        )}
-                        {leader.social.twitter && (
-                          <a href={leader.social.twitter} className="text-gray-400 hover:text-blue-400 transition-colors">
-                            <Twitter className="w-5 h-5" />
-                          </a>
-                        )}
-                        {leader.social.github && (
-                          <a href={leader.social.github} className="text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
-                            <Github className="w-5 h-5" />
                           </a>
                         )}
                         {leader.social.email && (
@@ -235,37 +160,38 @@ export const TeamPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Departments */}
+      {/* AI Team */}
       <section className="py-20 bg-gray-50 dark:bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              Our Departments
+              AI Team
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300">
-              Diverse teams working together to build the future of analytics
+              Cutting-edge AI powering our analytics platform
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {departments.map((dept, index) => (
+          <div className="flex justify-center">
+            {aiTeam.map((member, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700"
+                className="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-8 text-center max-w-lg"
               >
-                <div className={`w-12 h-12 bg-${dept.color}-100 dark:bg-${dept.color}-900/20 rounded-lg flex items-center justify-center mb-4`}>
-                  <span className={`text-${dept.color}-600 dark:text-${dept.color}-400 font-bold text-lg`}>
-                    {dept.count}
-                  </span>
+                <div className="w-20 h-20 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <Code className="w-10 h-10 text-white" />
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                  {dept.name}
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                  {member.name}
                 </h3>
+                <p className="text-blue-600 dark:text-blue-400 font-medium mb-3">
+                  {member.role}
+                </p>
                 <p className="text-gray-600 dark:text-gray-400">
-                  {dept.description}
+                  {member.description}
                 </p>
               </motion.div>
             ))}
@@ -273,50 +199,67 @@ export const TeamPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Team Grid */}
+      {/* Open Positions */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              Our Amazing Team
+              Join Our Team
             </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300">
-              The talented individuals making VizMind possible
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+              We're looking for talented individuals who are passionate about data analytics, 
+              AI, and creating exceptional user experiences. Join us in our mission to make 
+              powerful analytics accessible to everyone.
             </p>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-            {team.map((member, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden text-center"
-              >
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-full h-48 object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">
-                    {member.name}
-                  </h3>
-                  <p className="text-blue-600 dark:text-blue-400 text-sm font-medium mb-2">
-                    {member.role}
-                  </p>
-                  <p className="text-gray-500 dark:text-gray-400 text-sm">
-                    {member.department}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {openPositions.map((position, index) => {
+              const Icon = position.icon;
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md transition-all"
+                >
+                  <div className="flex items-start space-x-4">
+                    <div className="p-3 bg-blue-100 dark:bg-blue-900/20 rounded-lg">
+                      <Icon className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                        {position.title}
+                      </h3>
+                      <div className="flex flex-wrap gap-2 mb-3">
+                        <span className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded text-xs">
+                          {position.department}
+                        </span>
+                        <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 rounded text-xs">
+                          {position.type}
+                        </span>
+                        <span className="px-2 py-1 bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-300 rounded text-xs">
+                          {position.location}
+                        </span>
+                      </div>
+                      <a
+                        href="mailto:sathyaedu119@gmail.com?subject=Job Application: Position Name"
+                        className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 text-sm font-medium"
+                      >
+                        Apply Now
+                        <ArrowRight className="w-4 h-4 ml-1" />
+                      </a>
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Join Team CTA */}
+      {/* Get in Touch */}
       <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
@@ -324,26 +267,19 @@ export const TeamPage: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Want to Join Our Team?
+              Get in Touch
             </h2>
             <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-              We're always looking for talented individuals who share our passion for 
-              making data analytics accessible to everyone.
+              Have questions about our team or interested in joining VizMind? 
+              We'd love to hear from you!
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="/careers"
-                className="px-8 py-4 bg-white text-blue-600 rounded-lg hover:bg-gray-50 transition-all text-lg font-medium"
-              >
-                View Open Positions
-              </a>
-              <a
-                href="/contact"
-                className="px-8 py-4 border border-white text-white rounded-lg hover:bg-white hover:text-blue-600 transition-all text-lg font-medium"
-              >
-                Get in Touch
-              </a>
-            </div>
+            <a
+              href="mailto:sathyaedu119@gmail.com"
+              className="px-8 py-4 bg-white text-blue-600 rounded-lg hover:bg-gray-50 transition-all text-lg font-medium inline-flex items-center"
+            >
+              <Mail className="w-5 h-5 mr-2" />
+              Contact Us
+            </a>
           </motion.div>
         </div>
       </section>
