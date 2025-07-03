@@ -128,7 +128,7 @@ export const Footer: React.FC = () => {
             <div className="flex items-center space-x-4">
               {[
                 { icon: Twitter, href: 'https://twitter.com/vizminds', label: 'Twitter', color: 'from-blue-400 to-blue-600' },
-                { icon: Linkedin, href: 'https://www.linkedin.com/company/vizmind?trk=public_profile_topcard-current-company', label: 'LinkedIn', color: 'from-blue-600 to-blue-800' },
+                { icon: Linkedin, href: 'https://www.linkedin.com/company/vizmind', label: 'LinkedIn', color: 'from-blue-600 to-blue-800' },
                 { icon: Github, href: 'https://github.com/vizmind', label: 'GitHub', color: 'from-gray-600 to-gray-800' },
                 { icon: Mail, href: 'mailto:vizminds.help@gmail.com', label: 'Email', color: 'from-purple-500 to-pink-600' }
               ].map((social) => {
