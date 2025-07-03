@@ -133,7 +133,7 @@ export const CareersPage: React.FC = () => {
     {
       icon: Users,
       title: 'Inclusive Culture',
-      description: 'We're building a diverse team where everyone feels welcome and valued.'
+      description: 'We\'re building a diverse team where everyone feels welcome and valued.'
     }
   ];
 
