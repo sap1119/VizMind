@@ -126,7 +126,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
             </div>
             <p className="text-gray-600 mt-2">
               {isSignUp 
-                ? 'Join VizMind to unlock powerful data insights' 
+                ? 'Join VIZMINDS to unlock powerful data insights' 
                 : 'Sign in to access your dashboards and data'
               }
             </p>
@@ -151,7 +151,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
                 <Info className="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" />
                 <div className="text-blue-700 text-sm">
                   <p className="font-medium">Demo Account:</p>
-                  <p>Email: demo@vizmind.com</p>
+                  <p>Email: demo@vizminds.com</p>
                   <p>Password: demo123</p>
                 </div>
               </div>

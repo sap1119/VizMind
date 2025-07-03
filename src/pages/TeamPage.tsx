@@ -1,5 +1,5 @@
 import React from 'react';
-import { Linkedin, Twitter, Github, Mail, Briefcase, Users, Code, Database, Server, PenTool } from 'lucide-react';
+import { Linkedin, Mail, Users, Code, Database, Server, PenTool } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
@@ -8,10 +8,10 @@ export const TeamPage: React.FC = () => {
     {
       name: 'Pawar Sathyanarayana',
       role: 'Founder & CEO',
-      bio: 'Experienced entrepreneur with a passion for data analytics and AI. Founded VizMind with a vision to make powerful analytics accessible to everyone while maintaining data privacy.',
+      bio: 'Experienced entrepreneur with a passion for data analytics and AI. Founded VIZMINDS with a vision to make powerful analytics accessible to everyone while maintaining data privacy.',
       social: {
         linkedin: 'https://www.linkedin.com/in/pawar-sathyanarayana-714bb5201',
-        email: 'sathyaedu119@gmail.com'
+        email: 'vizminds.help@gmail.com'
       }
     }
   ];
@@ -21,7 +21,7 @@ export const TeamPage: React.FC = () => {
       name: 'Gemini',
       role: 'AI Technical Lead',
       department: 'Engineering',
-      description: 'Advanced AI system that helps develop and optimize VizMind\'s analytics algorithms and data processing capabilities.'
+      description: 'Advanced AI system that helps develop and optimize VIZMINDS\'s analytics algorithms and data processing capabilities. Gemini has contributed to coding, marketing, execution, and various other aspects of the platform.'
     }
   ];
 
@@ -66,7 +66,7 @@ export const TeamPage: React.FC = () => {
       department: 'Marketing',
       type: 'Full-time',
       location: 'Remote',
-      icon: Briefcase
+      icon: Users
     },
     {
       title: 'Senior Data Scientist',
@@ -88,7 +88,7 @@ export const TeamPage: React.FC = () => {
             className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6"
           >
             Meet the
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> VizMind Team</span>
+            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> VIZMINDS Team</span>
           </motion.h1>
           
           <motion.p 
@@ -111,7 +111,7 @@ export const TeamPage: React.FC = () => {
               Leadership
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300">
-              The visionary behind VizMind
+              The visionary behind VIZMINDS
             </p>
           </div>
           
@@ -181,7 +181,7 @@ export const TeamPage: React.FC = () => {
                 transition={{ delay: index * 0.1 }}
                 className="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-8 text-center max-w-lg"
               >
-                <div className="w-20 h-20 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <div className="w-20 h-20 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center mx-auto mb-6">
                   <Code className="w-10 h-10 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
@@ -244,11 +244,13 @@ export const TeamPage: React.FC = () => {
                         </span>
                       </div>
                       <a
-                        href="mailto:sathyaedu119@gmail.com?subject=Job Application: Position Name"
+                        href="mailto:vizminds.help@gmail.com?subject=Job Application: Position Name"
                         className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 text-sm font-medium"
                       >
                         Apply Now
-                        <ArrowRight className="w-4 h-4 ml-1" />
+                        <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
                       </a>
                     </div>
                   </div>
@@ -270,11 +272,11 @@ export const TeamPage: React.FC = () => {
               Get in Touch
             </h2>
             <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-              Have questions about our team or interested in joining VizMind? 
+              Have questions about our team or interested in joining VIZMINDS? 
               We'd love to hear from you!
             </p>
             <a
-              href="mailto:sathyaedu119@gmail.com"
+              href="mailto:vizminds.help@gmail.com"
               className="px-8 py-4 bg-white text-blue-600 rounded-lg hover:bg-gray-50 transition-all text-lg font-medium inline-flex items-center"
             >
               <Mail className="w-5 h-5 mr-2" />

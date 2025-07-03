@@ -588,7 +588,7 @@ export const SettingsPage: React.FC = () => {
                         <div>
                           <h3 className="font-semibold text-gray-900 dark:text-white">Premium Plan Active</h3>
                           <p className="text-sm text-gray-600 dark:text-gray-400">
-                            Full access to all VizMind analytics features
+                            Full access to all VIZMINDS analytics features
                           </p>
                         </div>
                       </div>

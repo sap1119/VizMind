@@ -79,12 +79,12 @@ export const WorkflowSidebar: React.FC = () => {
         <Link to="/home" className="flex items-center space-x-3">
           <img 
             src="/VizMind Logo - Flat Vector Style.png" 
-            alt="VizMind Logo" 
+            alt="VIZMINDS Logo" 
             className="w-8 h-8"
           />
           <div className="flex items-baseline space-x-1">
             <h1 className="text-lg font-black tracking-tight text-gray-900 dark:text-white">
-              VIZMIND
+              VIZMINDS
             </h1>
             <span className="text-xs font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent animate-pulse">
               BETA

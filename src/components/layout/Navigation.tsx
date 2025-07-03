@@ -21,7 +21,8 @@ export const Navigation: React.FC = () => {
       submenu: [
         { name: 'Features', href: '/features', description: 'Explore powerful analytics features' },
         { name: 'Pricing', href: '/pricing', description: 'Simple, transparent pricing' },
-        { name: 'Analytics Platform', href: '/analytics', description: 'Complete analytics solution' }
+        { name: 'Analytics Platform', href: '/analytics-platform', description: 'Complete analytics solution' },
+        { name: 'API Documentation', href: '/api-docs', description: 'Developer resources and guides' }
       ]
     },
     { 
@@ -29,7 +30,7 @@ export const Navigation: React.FC = () => {
       href: '#',
       submenu: [
         { name: 'About', href: '/about', description: 'Our mission and vision' },
-        { name: 'Team', href: '/team', description: 'Meet the VizMind team' },
+        { name: 'Team', href: '/team', description: 'Meet the VIZMINDS team' },
         { name: 'Careers', href: '/careers', description: 'Join our growing team' }
       ]
     },
@@ -53,14 +54,14 @@ export const Navigation: React.FC = () => {
             <div className="relative">
               <img 
                 src="/VizMind Logo - Flat Vector Style.png" 
-                alt="VizMind Logo" 
+                alt="VIZMINDS Logo" 
                 className="w-12 h-12 group-hover:scale-110 transition-transform"
               />
               <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full opacity-0 group-hover:opacity-20 transition-opacity blur"></div>
             </div>
             <div className="flex items-baseline space-x-2">
               <h1 className="text-2xl font-black tracking-tight text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                VIZMIND
+                VIZMINDS
               </h1>
               <div className="flex items-center space-x-1">
                 <Sparkles className="w-3 h-3 text-yellow-500 animate-pulse" />

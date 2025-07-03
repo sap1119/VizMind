@@ -31,6 +31,8 @@ import { PrivacyPolicyPage } from './pages/PrivacyPolicyPage';
 import { TermsOfServicePage } from './pages/TermsOfServicePage';
 import { CookiePolicyPage } from './pages/CookiePolicyPage';
 import { SecurityPage } from './pages/SecurityPage';
+import { AnalyticsPlatformPage } from './pages/AnalyticsPlatformPage';
+import { ApiDocsPage } from './pages/ApiDocsPage';
 
 // Error Boundary Component
 class ErrorBoundary extends React.Component<
@@ -58,7 +60,7 @@ class ErrorBoundary extends React.Component<
             <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <img 
                 src="/VizMind Logo - Flat Vector Style.png" 
-                alt="VizMind Logo" 
+                alt="VIZMINDS Logo" 
                 className="w-8 h-8"
               />
             </div>
@@ -118,7 +120,7 @@ const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) =
       <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900">
         <div className="text-center">
           <div className="animate-spin w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full mx-auto mb-4"></div>
-          <p className="text-gray-600 dark:text-gray-400 font-medium">Loading VizMind...</p>
+          <p className="text-gray-600 dark:text-gray-400 font-medium">Loading VIZMINDS...</p>
         </div>
       </div>
     );
@@ -249,6 +251,18 @@ const AppContent: React.FC = () => {
         <Route path="/security" element={
           <MarketingLayout>
             <SecurityPage />
+          </MarketingLayout>
+        } />
+
+        <Route path="/analytics-platform" element={
+          <MarketingLayout>
+            <AnalyticsPlatformPage />
+          </MarketingLayout>
+        } />
+        
+        <Route path="/api-docs" element={
+          <MarketingLayout>
+            <ApiDocsPage />
           </MarketingLayout>
         } />
         

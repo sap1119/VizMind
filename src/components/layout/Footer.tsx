@@ -7,8 +7,8 @@ export const Footer: React.FC = () => {
     product: [
       { name: 'Features', href: '/features' },
       { name: 'Pricing', href: '/pricing' },
-      { name: 'Analytics Platform', href: '/analytics' },
-      { name: 'API Documentation', href: '/docs' }
+      { name: 'Analytics Platform', href: '/analytics-platform' },
+      { name: 'API Documentation', href: '/api-docs' }
     ],
     company: [
       { name: 'About', href: '/about' },
@@ -46,14 +46,14 @@ export const Footer: React.FC = () => {
               <div className="relative">
                 <img 
                   src="/VizMind Logo - Flat Vector Style.png" 
-                  alt="VizMind Logo" 
+                  alt="VIZMINDS Logo" 
                   className="w-12 h-12 group-hover:scale-110 transition-transform"
                 />
                 <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full opacity-0 group-hover:opacity-20 transition-opacity blur"></div>
               </div>
               <div className="flex items-baseline space-x-2">
                 <h1 className="text-2xl font-black tracking-tight text-white group-hover:text-blue-400 transition-colors">
-                  VIZMIND
+                  VIZMINDS
                 </h1>
                 <div className="flex items-center space-x-1">
                   <Sparkles className="w-3 h-3 text-yellow-400 animate-pulse" />
@@ -86,7 +86,7 @@ export const Footer: React.FC = () => {
                 <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
                   <Mail className="w-5 h-5 text-white" />
                 </div>
-                <span className="font-medium">sathyaedu119@gmail.com</span>
+                <span className="font-medium">vizminds.help@gmail.com</span>
               </div>
             </div>
           </div>
@@ -115,7 +115,7 @@ export const Footer: React.FC = () => {
         <div className="border-t border-gray-700 mt-16 pt-10">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="flex items-center space-x-2 text-gray-300 text-lg mb-6 md:mb-0 font-medium">
-              <span>© 2025 VizMind Analytics. All rights reserved.</span>
+              <span>© 2025 VIZMINDS Analytics. All rights reserved.</span>
               <span className="text-red-400">•</span>
               <span className="flex items-center space-x-1">
                 <span>Made with</span>
@@ -127,10 +127,10 @@ export const Footer: React.FC = () => {
             {/* Enhanced Social Links */}
             <div className="flex items-center space-x-4">
               {[
-                { icon: Twitter, href: 'https://twitter.com/vizmind', label: 'Twitter', color: 'from-blue-400 to-blue-600' },
-                { icon: Linkedin, href: 'https://linkedin.com/company/vizmind', label: 'LinkedIn', color: 'from-blue-600 to-blue-800' },
-                { icon: Github, href: 'https://github.com/vizmind', label: 'GitHub', color: 'from-gray-600 to-gray-800' },
-                { icon: Mail, href: 'mailto:sathyaedu119@gmail.com', label: 'Email', color: 'from-purple-500 to-pink-600' }
+                { icon: Twitter, href: 'https://twitter.com/vizminds', label: 'Twitter', color: 'from-blue-400 to-blue-600' },
+                { icon: Linkedin, href: 'https://linkedin.com/company/vizminds', label: 'LinkedIn', color: 'from-blue-600 to-blue-800' },
+                { icon: Github, href: 'https://github.com/vizminds', label: 'GitHub', color: 'from-gray-600 to-gray-800' },
+                { icon: Mail, href: 'mailto:vizminds.help@gmail.com', label: 'Email', color: 'from-purple-500 to-pink-600' }
               ].map((social) => {
                 const Icon = social.icon;
                 return (
