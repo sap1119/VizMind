@@ -35,7 +35,7 @@ export const HomePage: React.FC = () => {
     {
       name: 'Sarah Johnson',
       role: 'Data Director, TechCorp',
-      content: 'VizMind transformed how we analyze data. The AI insights are incredibly accurate and the interface is intuitive.',
+      content: 'VIZMINDS transformed how we analyze data. The AI insights are incredibly accurate and the interface is intuitive.',
       rating: 5,
       avatar: 'https://images.pexels.com/photos/3756679/pexels-photo-3756679.jpeg?auto=compress&cs=tinysrgb&w=150'
     },
@@ -66,7 +66,7 @@ export const HomePage: React.FC = () => {
     {
       icon: Shield,
       title: 'Zero Data Storage',
-      description: 'VizMind doesn\'t store your private data. All processing happens in real-time without permanent storage.',
+      description: 'VIZMINDS doesn\'t store your private data. All processing happens in real-time without permanent storage.',
       color: 'emerald'
     },
     {
@@ -142,7 +142,7 @@ export const HomePage: React.FC = () => {
             transition={{ delay: 0.2 }}
             className="text-xl md:text-2xl text-white/90 mb-12 max-w-4xl mx-auto leading-relaxed"
           >
-            VizMind's AI-powered analytics platform helps businesses make data-driven decisions with 
+            VIZMINDS's AI-powered analytics platform helps businesses make data-driven decisions with 
             interactive dashboards, predictive insights, and automated reporting. 
             <strong className="text-yellow-300">Your data stays private and secure.</strong>
           </motion.p>
@@ -242,7 +242,7 @@ export const HomePage: React.FC = () => {
               transition={{ delay: 0.1 }}
               className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed"
             >
-              VizMind is built with privacy and security at its core. We don't store your private data, 
+              VIZMINDS is built with privacy and security at its core. We don't store your private data, 
               and we follow the highest standards to keep your information safe.
             </motion.p>
           </div>
@@ -286,7 +286,7 @@ export const HomePage: React.FC = () => {
               <h3 className="text-3xl font-black text-gray-900 dark:text-white">Privacy Guarantee</h3>
             </div>
             <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 text-center leading-relaxed">
-              We are committed to protecting your privacy. VizMind processes your data securely without storing 
+              We are committed to protecting your privacy. VIZMINDS processes your data securely without storing 
               sensitive information. Your business data remains yours, always.
             </p>
             <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-600 dark:text-gray-400">
@@ -358,7 +358,7 @@ export const HomePage: React.FC = () => {
               <span className="block text-gradient">Industry Leaders</span>
             </h2>
             <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300">
-              See what our customers say about VizMind
+              See what our customers say about VIZMINDS
             </p>
           </div>
           
@@ -424,7 +424,7 @@ export const HomePage: React.FC = () => {
             transition={{ delay: 0.1 }}
             className="text-xl md:text-2xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed"
           >
-            Join thousands of companies using VizMind to make better data-driven decisions. 
+            Join thousands of companies using VIZMINDS to make better data-driven decisions. 
             Your data stays private and secure with our zero-storage policy.
           </motion.p>
           <motion.div 
