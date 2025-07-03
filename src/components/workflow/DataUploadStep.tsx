@@ -9,12 +9,15 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 export const DataUploadStep: React.FC = () => {
-  const { parsedData, chartConfig, uploadData, isLoading, error, setCurrentStep } = useData();
+  const { parsedData, chartConfig, uploadData, isLoading, error, setCurrentStep, markStepComplete } = useData();
   const navigate = useNavigate();
 
   const handleContinue = () => {
-    setCurrentStep(2);
-    navigate('/dashboard');
+    if (parsedData) {
+      markStepComplete(1);
+      setCurrentStep(2);
+      navigate('/dashboard');
+    }
   };
 
   return (

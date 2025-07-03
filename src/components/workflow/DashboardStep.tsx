@@ -13,6 +13,7 @@ export const DashboardStep: React.FC = () => {
     generateDashboard, 
     isLoading, 
     setCurrentStep,
+    markStepComplete,
     completedSteps 
   } = useData();
   const navigate = useNavigate();
@@ -24,6 +25,7 @@ export const DashboardStep: React.FC = () => {
   }, [parsedData, dashboardData, generateDashboard]);
 
   const handleContinue = () => {
+    markStepComplete(2);
     setCurrentStep(3);
     navigate('/kpi');
   };
@@ -103,7 +105,7 @@ export const DashboardStep: React.FC = () => {
             <span>Back</span>
           </button>
           
-          {completedSteps.includes(2) && (
+          {dashboardData && (
             <button
               onClick={handleContinue}
               className="flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all"
@@ -269,7 +271,7 @@ export const DashboardStep: React.FC = () => {
           </div>
 
           {/* Next Step CTA */}
-          {completedSteps.includes(2) && (
+          {dashboardData && (
             <div className="bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200 rounded-lg p-6">
               <div className="flex items-center justify-between">
                 <div>
