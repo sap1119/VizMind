@@ -28,7 +28,7 @@ export const AnalyticsPlatformPage: React.FC = () => {
     {
       icon: TrendingUp,
       title: 'Trend Analysis',
-      description: 'Identify patterns and predict future trends with AI-powered analytics. Detect anomalies and get insights into what's driving changes in your data.'
+      description: 'Identify patterns and predict future trends with AI-powered analytics. Detect anomalies and get insights into what\'s driving changes in your data.'
     },
     {
       icon: FileText,
