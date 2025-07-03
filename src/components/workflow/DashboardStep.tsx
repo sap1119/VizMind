@@ -3,6 +3,7 @@ import { useData } from '../../contexts/DataContext';
 import { ArrowRight, ArrowLeft, LayoutDashboard, BarChart3, PieChart, LineChart } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, PieChart as RechartsPieChart, Pie, Cell, LineChart as RechartsLineChart, Line } from 'recharts';
+import { DashboardCustomizer } from '../dashboard/DashboardCustomizer';
 
 const COLORS = ['#3B82F6', '#8B5CF6', '#10B981', '#F59E0B', '#EF4444', '#6366F1'];
 
@@ -14,7 +15,8 @@ export const DashboardStep: React.FC = () => {
     isLoading, 
     setCurrentStep,
     markStepComplete,
-    completedSteps 
+    completedSteps,
+    updateDashboard
   } = useData();
   const navigate = useNavigate();
 
@@ -33,6 +35,10 @@ export const DashboardStep: React.FC = () => {
   const handleBack = () => {
     setCurrentStep(1);
     navigate('/');
+  };
+
+  const handleDashboardUpdate = (updatedDashboard: any) => {
+    updateDashboard(updatedDashboard);
   };
 
   if (!parsedData) {
@@ -124,8 +130,15 @@ export const DashboardStep: React.FC = () => {
             <p className="text-gray-600">Generating dashboard...</p>
           </div>
         </div>
-      ) : (
+      ) : dashboardData ? (
         <div className="space-y-8">
+          {/* Dashboard Customizer */}
+          <DashboardCustomizer 
+            dashboard={dashboardData}
+            data={parsedData}
+            onSave={handleDashboardUpdate}
+          />
+
           {/* Dashboard Overview */}
           <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
             <div className="flex items-center space-x-3 mb-6">
@@ -290,6 +303,18 @@ export const DashboardStep: React.FC = () => {
               </div>
             </div>
           )}
+        </div>
+      ) : (
+        <div className="text-center py-12 bg-white rounded-xl shadow-sm border border-gray-200">
+          <LayoutDashboard className="w-12 h-12 text-gray-400 mx-auto mb-4" />
+          <h3 className="text-lg font-semibold text-gray-900 mb-2">Dashboard Generation Failed</h3>
+          <p className="text-gray-600 mb-6">Unable to generate dashboard from current data</p>
+          <button
+            onClick={generateDashboard}
+            className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all"
+          >
+            Try Again
+          </button>
         </div>
       )}
     </div>

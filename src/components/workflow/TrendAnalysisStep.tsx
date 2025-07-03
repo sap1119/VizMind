@@ -11,6 +11,7 @@ export const TrendAnalysisStep: React.FC = () => {
     generateTrends, 
     isLoading, 
     setCurrentStep,
+    markStepComplete,
     completedSteps 
   } = useData();
   const navigate = useNavigate();
@@ -19,7 +20,12 @@ export const TrendAnalysisStep: React.FC = () => {
     if (parsedData && !trendData) {
       generateTrends();
     }
-  }, [parsedData, trendData, generateTrends]);
+    
+    // Mark step as complete if we have trend data
+    if (trendData) {
+      markStepComplete(5);
+    }
+  }, [parsedData, trendData, generateTrends, markStepComplete]);
 
   const handleContinue = () => {
     setCurrentStep(6);
@@ -98,7 +104,7 @@ export const TrendAnalysisStep: React.FC = () => {
                 <div>
                   <p className="text-sm text-gray-600">Data Points</p>
                   <p className="text-xl font-bold text-gray-900">
-                    {trendData.data.filter(d => !d.predicted).length}
+                    {trendData.data.filter((d: any) => !d.predicted).length}
                   </p>
                 </div>
               </div>
@@ -112,7 +118,7 @@ export const TrendAnalysisStep: React.FC = () => {
                 <div>
                   <p className="text-sm text-gray-600">Predictions</p>
                   <p className="text-xl font-bold text-gray-900">
-                    {trendData.data.filter(d => d.predicted).length}
+                    {trendData.data.filter((d: any) => d.predicted).length}
                   </p>
                 </div>
               </div>
@@ -191,7 +197,7 @@ export const TrendAnalysisStep: React.FC = () => {
                   stroke="#3B82F6"
                   fill="url(#trendGradient)"
                   strokeWidth={2}
-                  dot={(props) => {
+                  dot={(props: any) => {
                     if (props.payload.anomaly) {
                       return <circle cx={props.cx} cy={props.cy} r={4} fill="#EF4444" stroke="#fff" strokeWidth={2} />;
                     }
@@ -219,7 +225,7 @@ export const TrendAnalysisStep: React.FC = () => {
               <div>
                 <h4 className="font-medium text-gray-900 mb-3">Analysis Summary</h4>
                 <ul className="space-y-2">
-                  {trendData.insights.map((insight, index) => (
+                  {trendData.insights.map((insight: string, index: number) => (
                     <li key={index} className="flex items-start space-x-2">
                       <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
                       <span className="text-gray-600 text-sm">{insight}</span>

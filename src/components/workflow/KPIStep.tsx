@@ -10,6 +10,7 @@ export const KPIStep: React.FC = () => {
     generateKPIs, 
     isLoading, 
     setCurrentStep,
+    markStepComplete,
     completedSteps 
   } = useData();
   const navigate = useNavigate();
@@ -18,7 +19,12 @@ export const KPIStep: React.FC = () => {
     if (parsedData && kpiData.length === 0) {
       generateKPIs();
     }
-  }, [parsedData, kpiData, generateKPIs]);
+    
+    // Mark step as complete if we have KPIs
+    if (kpiData.length > 0) {
+      markStepComplete(3);
+    }
+  }, [parsedData, kpiData, generateKPIs, markStepComplete]);
 
   const handleContinue = () => {
     setCurrentStep(4);

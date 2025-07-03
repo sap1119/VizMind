@@ -11,6 +11,7 @@ export const AnalyticsReportStep: React.FC = () => {
     downloadReport,
     isLoading, 
     setCurrentStep,
+    markStepComplete,
     completedSteps,
     dashboardData,
     kpiData,
@@ -23,7 +24,12 @@ export const AnalyticsReportStep: React.FC = () => {
     if (parsedData && !reportData) {
       generateReport();
     }
-  }, [parsedData, reportData, generateReport]);
+    
+    // Mark step as complete if we have report data
+    if (reportData) {
+      markStepComplete(6);
+    }
+  }, [parsedData, reportData, generateReport, markStepComplete]);
 
   const handleBack = () => {
     setCurrentStep(5);
@@ -166,7 +172,7 @@ export const AnalyticsReportStep: React.FC = () => {
                   <TrendingUp className="w-5 h-5 text-orange-600" />
                   <span className="font-medium text-orange-900">Predictions</span>
                 </div>
-                <p className="text-2xl font-bold text-orange-900">{trendData?.data?.filter(d => d.predicted)?.length || 0}</p>
+                <p className="text-2xl font-bold text-orange-900">{trendData?.data?.filter((d: any) => d.predicted)?.length || 0}</p>
                 <p className="text-sm text-orange-700">Future points</p>
               </div>
             </div>
@@ -175,7 +181,7 @@ export const AnalyticsReportStep: React.FC = () => {
             <div className="space-y-6">
               <h3 className="text-lg font-semibold text-gray-900">Report Sections</h3>
               
-              {reportData.sections.map((section, index) => (
+              {reportData.sections.map((section: any, index: number) => (
                 <div key={index} className="border-l-4 border-blue-500 pl-4 py-2">
                   <h4 className="font-medium text-gray-900 mb-2">{section.title}</h4>
                   <p className="text-gray-600 text-sm">{section.content}</p>
@@ -187,7 +193,7 @@ export const AnalyticsReportStep: React.FC = () => {
             <div className="mt-8">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Key Recommendations</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {reportData.recommendations.map((recommendation, index) => (
+                {reportData.recommendations.map((recommendation: string, index: number) => (
                   <div key={index} className="flex items-start space-x-3 p-4 bg-gray-50 rounded-lg">
                     <div className="w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-medium flex-shrink-0">
                       {index + 1}

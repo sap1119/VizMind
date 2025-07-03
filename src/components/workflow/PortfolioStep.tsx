@@ -3,6 +3,7 @@ import { useData } from '../../contexts/DataContext';
 import { ArrowRight, ArrowLeft, BarChart3, TrendingUp, TrendingDown, DollarSign } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { ResponsiveContainer, PieChart, Pie, Cell, Tooltip, BarChart, Bar, XAxis, YAxis, CartesianGrid } from 'recharts';
+import { PortfolioCustomizer } from '../portfolio/PortfolioCustomizer';
 
 const COLORS = ['#3B82F6', '#8B5CF6', '#10B981', '#F59E0B', '#EF4444', '#6366F1'];
 
@@ -13,7 +14,8 @@ export const PortfolioStep: React.FC = () => {
     generatePortfolio, 
     isLoading, 
     setCurrentStep,
-    completedSteps 
+    completedSteps,
+    updatePortfolio
   } = useData();
   const navigate = useNavigate();
 
@@ -31,6 +33,10 @@ export const PortfolioStep: React.FC = () => {
   const handleBack = () => {
     setCurrentStep(3);
     navigate('/kpi');
+  };
+
+  const handlePortfolioUpdate = (updatedPortfolio: any) => {
+    updatePortfolio(updatedPortfolio);
   };
 
   if (!parsedData) {
@@ -90,6 +96,12 @@ export const PortfolioStep: React.FC = () => {
         </div>
       ) : portfolioData ? (
         <div className="space-y-8">
+          {/* Portfolio Customizer */}
+          <PortfolioCustomizer 
+            portfolio={portfolioData}
+            onSave={handlePortfolioUpdate}
+          />
+
           {/* Portfolio Overview */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
@@ -172,7 +184,7 @@ export const PortfolioStep: React.FC = () => {
                     dataKey="allocation"
                     label={({ name, allocation }) => `${name} ${allocation.toFixed(1)}%`}
                   >
-                    {portfolioData.assets.map((entry, index) => (
+                    {portfolioData.assets.map((entry: any, index: number) => (
                       <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                     ))}
                   </Pie>
@@ -220,7 +232,7 @@ export const PortfolioStep: React.FC = () => {
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
-                  {portfolioData.assets.map((asset, index) => (
+                  {portfolioData.assets.map((asset: any, index: number) => (
                     <tr key={asset.symbol} className="hover:bg-gray-50">
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div>
