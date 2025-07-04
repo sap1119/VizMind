@@ -3,7 +3,7 @@ import { useData } from '../../contexts/DataContext';
 import { ArrowRight, ArrowLeft, LayoutDashboard, BarChart3, PieChart, LineChart } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, PieChart as RechartsPieChart, Pie, Cell, LineChart as RechartsLineChart, Line } from 'recharts';
-import { DashboardCustomizer } from '../dashboard/DashboardCustomizer';
+
 
 const COLORS = ['#3B82F6', '#8B5CF6', '#10B981', '#F59E0B', '#EF4444', '#6366F1'];
 
@@ -132,13 +132,6 @@ export const DashboardStep: React.FC = () => {
         </div>
       ) : dashboardData ? (
         <div className="space-y-8">
-          {/* Dashboard Customizer */}
-          <DashboardCustomizer 
-            dashboard={dashboardData}
-            data={parsedData}
-            onSave={handleDashboardUpdate}
-          />
-
           {/* Dashboard Overview */}
           <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
             <div className="flex items-center space-x-3 mb-6">
