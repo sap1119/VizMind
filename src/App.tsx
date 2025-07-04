@@ -133,6 +133,7 @@ const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) =
   return <>{children}</>;
 };
 
+
 // Main App Content
 const AppContent: React.FC = () => {
   const { user } = useAuth();
@@ -280,6 +281,13 @@ const AppContent: React.FC = () => {
           <ProtectedRoute>
             <AnalyticsAppLayout>
               <DataUploadStep />
+            </AnalyticsAppLayout>
+          </ProtectedRoute>
+        } />
+        <Route path="/dashboard/view" element={
+          <ProtectedRoute>
+            <AnalyticsAppLayout>
+              <DashboardStep />
             </AnalyticsAppLayout>
           </ProtectedRoute>
         } />
