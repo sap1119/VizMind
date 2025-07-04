@@ -190,13 +190,12 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Support
 
-For support, email support@vizmind.com or join our [Discord community](https://discord.gg/vizmind).
+For support, email vizminds.help@gmail.com or join our [Discord community](https://discord.gg/vizmind).
 
 ## 🔗 Links
 
 - **Live Demo:** [https://vizmind-analytics.netlify.app](https://vizmind-analytics.netlify.app)
-- **Documentation:** [https://docs.vizmind.com](https://docs.vizmind.com)
-- **API Reference:** [https://api.vizmind.com](https://api.vizmind.com)
+- **site:** (https://vizmind.net)
 
 ---
 
