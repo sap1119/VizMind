@@ -16,7 +16,7 @@ export const DataUploadStep: React.FC = () => {
     if (parsedData) {
       markStepComplete(1);
       setCurrentStep(2);
-      navigate('/dashboard');
+      navigate('/dashboard/view');
     }
   };
 
